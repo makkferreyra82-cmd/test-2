@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda - Lesly & Isidro</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Josefin+Sans:wght@300;400;600&family=Gotu&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILOS GLOBALES --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9f9f9;
+        }
+
+        /* --- SECCIÓN 1: HERO --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('pareja.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-content { z-index: 2; }
+        .monograma { width: 120px; margin-bottom: 10px; }
+        .hero h2 { font-weight: 300; letter-spacing: 3px; font-size: 1.2rem; margin-bottom: 5px; text-transform: uppercase; }
+        .hero h1 { font-size: 3.5rem; font-weight: 600; margin: 0; line-height: 1.1; }
+        .divider { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+        .divider::before, .divider::after { content: ""; height: 1px; width: 50px; background-color: white; margin: 0 15px; }
+        .anillo { font-size: 1.5rem; }
+        .fecha, .lugar { font-size: 1.3rem; font-weight: 300; margin: 5px 0; letter-spacing: 1px; }
+
+        /* --- SECCIÓN 2: ESPECIAL --- */
+        #especial {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fondoseccion02.webp');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .titulo-boda { font-size: 2.8rem; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; max-width: 800px; font-family: 'Playfair Display', serif; }
+        .texto-contenedor { max-width: 500px; margin: 0 auto; line-height: 1.6; font-size: 1.15rem; font-weight: 300; }
+        .btn-celebracion {
+            display: inline-block;
+            background-color: #bc778b;
+            color: #ffffff;
+            padding: 18px 45px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+        }
+        .btn-celebracion:hover { transform: scale(1.05); }
+        .estrellas { margin-top: 50px; color: #ffffff; font-size: 1.2rem; letter-spacing: 8px; margin-bottom: 15px; }
+        .subtitulo-final { text-transform: uppercase; letter-spacing: 4px; font-size: 0.85rem; font-weight: 600; }
+
+        /* --- SECCIÓN CARRUSEL --- */
+        .carousel-section { padding: 80px 0; width: 100%; background-color: #ffffff; }
+        .carousel-container { position: relative; width: 90%; max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .carousel-slide { display: flex; width: 100%; transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1); }
+        .carousel-slide img { width: 100%; height: 500px; object-fit: cover; flex-shrink: 0; display: block; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.7); color: #333; border: none; width: 45px; height: 45px; cursor: pointer; z-index: 10; font-size: 1.2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .dot { width: 10px; height: 10px; background-color: #ccc; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
+        .dot.active { background-color: #bc778b; transform: scale(1.3); }
+        .carousel-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #823c2e; margin-bottom: 30px; font-weight: 600; }
+
+        /* --- SECCIÓN 3: CONTADOR --- */
+        #contador { background-color: #823c2e; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
+        #contador h3 { font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; font-size: 2rem; }
+        .timer-container { display: flex; justify-content: center; align-items: baseline; gap: 15px; }
+        .timer-unit { display: flex; flex-direction: column; align-items: center; min-width: 65px; }
+        .timer-val { font-size: 45px; font-weight: 600; line-height: 1; margin-bottom: 8px; }
+        .label { text-transform: uppercase; letter-spacing: 1.5px; font-size: 10px; opacity: 0.8; }
+
+        /* --- SECCIÓN 4: ITINERARIO --- */
+        .seccion-itinerario { background-color: #fff2e6; padding: 80px 20px; text-align: center; font-family: 'Playfair Display', serif; }
+        .titulo-principal { font-size: 2.5rem; color: #823c2e; margin-bottom: 40px; font-style: italic; }
+        .tarjeta-evento { max-width: 500px; margin: 0 auto 60px auto; padding: 0 15px; }
+        .tarjeta-evento h3 { color: #bc778b; text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem; margin-bottom: 10px; }
+        .descripcion-evento { font-family: 'Montserrat', sans-serif; font-size: 1rem; line-height: 1.6; color: #555; margin-bottom: 15px; }
+        .info-logistica { display: block; font-weight: bold; color: #333; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; }
+        .foto-lugar { width: 100%; max-width: 400px; height: 250px; object-fit: cover; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: block; margin: 0 auto 20px auto; }
+        .btn-ubicacion { display: inline-block; padding: 12px 30px; background-color: #bc778b; color: #ffffff; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Montserrat', sans-serif; transition: background-color 0.3s ease; }
+
+        /* --- SECCIÓN VESTIMENTA --- */
+        .vestimenta-section { background-color: #f4f0eb; padding: 80px 20px; text-align: center; color: #333333; font-family: 'Gotu', sans-serif; }
+        .vestimenta-titulo { font-family: 'Josefin Sans', sans-serif; font-size: 38px; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 5px; color: #823c2e; margin-top: 0; }
+        .vestimenta-subtitulo { font-family: 'Josefin Sans', sans-serif; font-size: 24px; letter-spacing: 2px; margin-bottom: 40px; color: #bc778b; }
+        .iconos-container { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; }
+        .icono-img { width: 110px; height: auto; display: block; }
+        .texto-mujeres { font-size: 18px; margin-bottom: 25px; letter-spacing: 1px; color: #333333; }
+        .paleta-container { max-width: 320px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .fila-colores { display: flex; justify-content: center; gap: 12px; }
+        .circulo { width: 55px; height: 55px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 8px rgba(0,0,0,0.05); flex-shrink: 0; }
+
+        /* --- SECCIÓN REGALOS --- */
+        .seccion-regalos { background-color: #ffffff; padding: 80px 20px; text-align: center; font-family: 'Gotu', sans-serif; }
+        .regalos-container { max-width: 550px; margin: 0 auto; }
+        .regalos-titulo { font-family: 'Josefin Sans', sans-serif; font-size: 38px; color: #823c2e; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; font-weight: 400; }
+        .regalos-texto { font-size: 17px; color: #333333; line-height: 1.8; letter-spacing: 1px; margin-bottom: 30px; }
+        .regalos-subtitulo { font-family: 'Josefin Sans', sans-serif; font-size: 24px; color: #bc778b; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
+        .imagen-gift { width: 100%; max-width: 350px; height: auto; border-radius: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+
+        /* --- SECCIÓN GALERÍA --- */
+        .seccion-instantes { background-color: #3b2c35; padding: 60px 20px; text-align: center; font-family: 'Gotu', sans-serif; }
+        .instantes-titulo { font-family: 'Josefin Sans', sans-serif; font-size: 38px; color: #ffffff; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; margin-top: 0; }
+        .instantes-texto { font-size: 16px; color: #d1ced0; line-height: 1.6; max-width: 500px; margin: 0 auto 40px; }
+        .galeria-mosaico { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+        .foto-galeria { width: 100%; height: 100%; min-height: 150px; object-fit: cover; border-radius: 8px; display: block; cursor: pointer; transition: transform 0.2s ease; }
+        .foto-galeria:hover { filter: brightness(0.9); }
+        .columna-mixta { display: flex; flex-direction: column; gap: 12px; }
+        .columna-mixta .foto-galeria { height: calc(50% - 6px); }
+        .foto-galeria.fullscreen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: contain; z-index: 9999; background-color: rgba(0, 0, 0, 0.9); border-radius: 0; padding: 0; margin: 0; }
+
+        /* --- NUEVO: ESTILOS CRONOGRAMA --- */
+        :root {
+            --color-linea: #f2c94c;
+            --color-dorado-oscuro: #9c7c38;
+            --fondo-cronograma: #fffaf5;
+            --distancia-centro: 40px;
+        }
+        .seccion-cronograma { background-color: var(--fondo-cronograma); padding: 60px 20px; font-family: 'Poppins', sans-serif; }
+        .header-cronograma { text-align: center; margin-bottom: 60px; }
+        .header-cronograma h2 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--color-dorado-oscuro); font-size: 1.4rem; margin: 0; }
+        .header-cronograma h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 10px 0; color: #333; }
+        .subtitulo-cronograma { font-size: 1rem; color: #666; max-width: 550px; margin: 0 auto; line-height: 1.5; }
+        .timeline-container { position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline-container::after { content: ''; position: absolute; width: 2px; background-color: var(--color-linea); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); opacity: 0.6; }
+        .timeline-item { position: relative; width: 50%; margin-bottom: 30px; box-sizing: border-box; display: flex; }
+        .timeline-item::after { content: ''; position: absolute; width: 14px; height: 14px; background-color: var(--color-linea); border: 3px solid white; top: 50%; transform: translateY(-50%); border-radius: 50%; z-index: 2; }
+        .item-izq { left: 0; justify-content: flex-end; padding-right: var(--distancia-centro); }
+        .item-izq::after { right: -10px; }
+        .item-der { left: 50%; justify-content: flex-start; padding-left: var(--distancia-centro); }
+        .item-der::after { left: -10px; }
+        .cronograma-card { background: white; padding: 15px 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; width: 100%; max-width: 320px; }
+        .icono-circulo { width: 45px; height: 45px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; font-size: 1.2rem; }
+        .bg-pink { background-color: #ffebee; color: #e91e63; }
+        .bg-orange { background-color: #fff3e0; color: #fb8c00; }
+        .bg-purple { background-color: #f3e5f5; color: #8e24aa; }
+        .bg-blue { background-color: #e3f2fd; color: #1e88e5; }
+        .bg-green { background-color: #e8f5e9; color: #43a047; }
+        .info-texto .hora { color: var(--color-dorado-oscuro); font-weight: 600; font-size: 0.85rem; display: block; }
+        .info-texto h3 { margin: 0; font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #333; }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .titulo-boda { font-size: 1.8rem; }
+            .carousel-container { width: 100%; border-radius: 0; }
+            .carousel-slide img { height: 400px; }
+            .carousel-title { font-size: 1.8rem; }
+            .timer-val { font-size: 40px; }
+            .titulo-principal { font-size: 2rem; }
+            .vestimenta-titulo, .regalos-titulo, .instantes-titulo { font-size: 28px; }
+            .vestimenta-subtitulo { font-size: 20px; }
+            .circulo { width: 45px; height: 45px; }
+            .icono-img { width: 85px; }
+            .iconos-container { gap: 20px; }
+            .regalos-texto { font-size: 15px; }
+            .galeria-mosaico { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            
+            /* Cronograma Móvil */
+            .timeline-container::after { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 45px !important; padding-right: 0 !important; justify-content: flex-start !important; }
+            .timeline-item::after { left: 13px !important; }
+            .header-cronograma h1 { font-size: 2.2rem; }
+        }
+        @media (min-width: 768px) {
+            .timer-val { font-size: 80px; }
+            #contador h3 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="monograma01.webp" alt="Logo" class="monograma">
+            <h2>Nos casamos</h2>
+            <h1>Lesly &<br>Isidro</h1>
+            <div class="divider"><span class="anillo">💍</span></div>
+            <p class="fecha">07 de marzo, 2026</p>
+            <p class="lugar">Villa la Moraleja, Dgo.</p>
+        </div>
+    </section>
+
+    <section id="especial">
+        <h2 class="titulo-boda">Nuestra boda, un día especial</h2>
+        <div class="texto-contenedor">
+            <p>Tenemos el gusto de invitarte a este día tan importante de nuestras vidas</p>
+            <p>Queremos compartir contigo la felicidad de nuestra unión</p>
+            <p>Sera un honor contar con tu <strong>presencia</strong>.</p>
+        </div>
+        <a href="https://form.jotform.com/260032396916054" id="btn-invitacion" class="btn-celebracion" target="_blank">¡Unete a nuestra celebracion!</a>
+        <div class="estrellas">★★★★★</div>
+        <p class="subtitulo-final">Un momento inolvidable</p>
+    </section>
+
+    <section id="carousel-section" class="carousel-section">
+        <h2 class="carousel-title">Nuestros Momentos</h2>
+        <div class="carousel-container">
+            <div class="carousel-slide" id="slide">
+                <img src="fotoh (1).webp" alt="Foto 1">
+                <img src="fotoh (2).webp" alt="Foto 2">
+                <img src="fotoh (3).webp" alt="Foto 3">
+                <img src="fotoh (4).webp" alt="Foto 4">
+                <img src="fotoh (5).webp" alt="Foto 5">
+                <img src="fotoh (6).webp" alt="Foto 6">
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)" aria-label="Anterior">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)" aria-label="Siguiente">❯</button>
+        </div>
+        <div class="carousel-dots" id="dots-container"></div>
+    </section>
+
+    <section id="contador">
+        <h3>¡Falta poco!</h3>
+        <div id="wedding-timer">
+            <div class="timer-container">
+                <div class="timer-unit"><span id="d_val" class="timer-val">00</span><span class="label">Días</span></div>
+                <div class="timer-unit"><span id="h_val" class="timer-val">00</span><span class="label">Hrs</span></div>
+                <div class="timer-unit"><span id="m_val" class="timer-val">00</span><span class="label">Min</span></div>
+                <div class="timer-unit"><span id="s_val" class="timer-val">00</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-itinerario">
+        <h2 class="titulo-principal">Nuestra Boda</h2>
+        <article class="tarjeta-evento">
+            <h3>Ceremonia Religiosa</h3>
+            <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p>
+            <time class="info-logistica">17:00 hrs | Parroquia del Espíritu Santo</time>
+            <img src="iglesia.webp" class="foto-lugar" alt="Vista de la Parroquia Espíritu Santo">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a>
+        </article>
+        <article class="tarjeta-evento">
+            <h3>Ceremonia Civil</h3>
+            <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p>
+            <time class="info-logistica">18:30 hrs | Villa la Moraleja</time>
+            <img src="civil.webp" class="foto-lugar" alt="Jardines para ceremonia civil">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a>
+        </article>
+        <article class="tarjeta-evento">
+            <h3>Recepción</h3>
+            <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p>
+            <time class="info-logistica">19:00 hrs | Villa la Moraleja</time>
+            <img src="recepcion.webp" class="foto-lugar" alt="Salón de recepción">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a>
+        </article>
+    </section>
+
+    <section class="vestimenta-section">
+        <h2 class="vestimenta-titulo">Código de Vestimenta</h2>
+        <p class="vestimenta-subtitulo">Formal</p>
+        <div class="iconos-container">
+            <img src="traje.webp" alt="Icono Traje Masculino" class="icono-img">
+            <img src="vestido.webp" alt="Icono Vestido Femenino" class="icono-img">
+        </div>
+        <p class="texto-mujeres">Mujeres: Vestido, en la siguiente paleta de color:</p>
+        <div class="paleta-container">
+            <div class="fila-colores">
+                <div class="circulo" style="background-color: #C3228A;"></div>
+                <div class="circulo" style="background-color: #EF66D0;"></div>
+                <div class="circulo" style="background-color: #F57BB8;"></div>
+                <div class="circulo" style="background-color: #D1A1F7;"></div>
+            </div>
+            <div class="fila-colores">
+                <div class="circulo" style="background-color: #EC2D7D;"></div>
+                <div class="circulo" style="background-color: #FD4B6F;"></div>
+                <div class="circulo" style="background-color: #F2052F;"></div>
+                <div class="circulo" style="background-color: #FA812E;"></div>
+            </div>
+            <div class="fila-colores">
+                <div class="circulo" style="background-color: #FFCE6F;"></div>
+                <div class="circulo" style="background-color: #759A29;"></div>
+                <div class="circulo" style="background-color: #ADB83E;"></div>
+                <div class="circulo" style="background-color: #F9DB2D;"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-regalos">
+        <div class="regalos-container">
+            <h2 class="regalos-titulo">Regalos</h2>
+            <p class="regalos-texto">
+                El mejor regalo es la alegría y el honor de compartir con ustedes este día tan especial.
+                <br><br>
+                Si es su deseo obsequiarnos algo adicional les recomendamos la siguiente opción:
+            </p>
+            <h3 class="regalos-subtitulo">Lluvia de sobres</h3>
+            <img src="gift.webp" alt="Lluvia de sobres" class="imagen-gift">
+        </div>
+    </section>
+
+    <section class="seccion-instantes">
+        <h2 class="instantes-titulo">Instantes juntos</h2>
+        <p class="instantes-texto">Cómplices en cada risa, cada locura y muy pronto en nuestro "Sí".</p>
+        <div class="galeria-mosaico">
+            <img src="fotov01.webp" class="foto-galeria" alt="Pareja 1" onclick="ampliarFoto(this)">
+            <img src="fotov02.webp" class="foto-galeria" alt="Pareja 2" onclick="ampliarFoto(this)">
+            <img src="fotov03.webp" class="foto-galeria" alt="Pareja 3" onclick="ampliarFoto(this)">
+            <div class="columna-mixta">
+                <img src="fotohz01.webp" class="foto-galeria" alt="Pareja 4" onclick="ampliarFoto(this)">
+                <img src="fotohz02.webp" class="foto-galeria" alt="Pareja 5" onclick="ampliarFoto(this)">
+            </div>
+            <img src="fotov04.webp" class="foto-galeria" alt="Pareja 6" onclick="ampliarFoto(this)">
+            <img src="fotov05.webp" class="foto-galeria" alt="Pareja 7" onclick="ampliarFoto(this)">
+        </div>
+    </section>
+
+    <section class="seccion-cronograma">
+        <header class="header-cronograma">
+            <h2>El gran día</h2>
+            <h1>Cronograma</h1>
+            <p class="subtitulo-cronograma">
+                Hemos preparado un día lleno de momentos especiales. Aquí tienes el programa completo.
+            </p>
+        </header>
+
+        <div class="timeline-container">
+            <div class="timeline-item item-izq">
+                <article class="cronograma-card">
+                    <div class="icono-circulo bg-pink"><i class="fa-solid fa-church"></i></div>
+                    <div class="info-texto">
+                        <span class="hora">17:00 hrs</span>
+                        <h3>Ceremonia Religiosa</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="timeline-item item-der">
+                <article class="cronograma-card">
+                    <div class="icono-circulo bg-orange"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="info-texto">
+                        <span class="hora">18:30 hrs</span>
+                        <h3>Ceremonia Civil</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="timeline-item item-izq">
+                <article class="cronograma-card">
+                    <div class="icono-circulo bg-purple"><i class="fa-solid fa-wine-glass"></i></div>
+                    <div class="info-texto">
+                        <span class="hora">19:00 hrs</span>
+                        <h3>Recepción</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="timeline-item item-der">
+                <article class="cronograma-card">
+                    <div class="icono-circulo bg-blue"><i class="fa-solid fa-people-group"></i></div>
+                    <div class="info-texto">
+                        <span class="hora">19:30 hrs</span>
+                        <h3>Entrada y Vals</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="timeline-item item-izq">
+                <article class="cronograma-card">
+                    <div class="icono-circulo bg-green"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="info-texto">
+                        <span class="hora">20:00 hrs</span>
+                        <h3>Cena</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="timeline-item item-der">
+                <article class="cronograma-card">
+                    <div class="icono-circulo bg-pink"><i class="fa-solid fa-music"></i></div>
+                    <div class="info-texto">
+                        <span class="hora">21:00 hrs</span>
+                        <h3>¡A bailar!</h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    (function () {
+        const targetDate = new Date(2026, 2, 7, 17, 0, 0).getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const t = targetDate - now;
+            const d = document.getElementById("d_val");
+            const h = document.getElementById("h_val");
+            const m = document.getElementById("m_val");
+            const s = document.getElementById("s_val");
+            if (t <= 0) {
+                const timerElem = document.getElementById("wedding-timer");
+                if(timerElem) timerElem.innerHTML = "<span style='color:white; font-size:30px;'>¡Llegó el día!</span>";
+                return;
+            }
+            if(d) d.textContent = Math.floor(t / (1000 * 60 * 60 * 24));
+            if(h) h.textContent = ("0" + Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
+            if(m) m.textContent = ("0" + Math.floor((t % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
+            if(s) s.textContent = ("0" + Math.floor((t % (1000 * 60)) / 1000)).slice(-2);
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        const slide = document.getElementById('slide');
+        const images = document.querySelectorAll('#slide img');
+        const dotsContainer = document.getElementById('dots-container');
+        if(slide && images.length > 0) {
+            let counter = 0;
+            const totalImages = images.length;
+            let timerCarousel;
+            function initDots() {
+                for (let i = 0; i < totalImages; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            function updateDisplay() {
+                slide.style.transform = `translateX(${-counter * 100}%)`;
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach((dot, index) => dot.classList.toggle('active', index === counter));
+            }
+            window.moveSlide = function(step) { counter = (counter + step + totalImages) % totalImages; updateDisplay(); resetTimer(); }
+            function goToSlide(index) { counter = index; updateDisplay(); resetTimer(); }
+            function startTimer() { timerCarousel = setInterval(() => { counter = (counter + 1) % totalImages; updateDisplay(); }, 4000); }
+            function resetTimer() { clearInterval(timerCarousel); startTimer(); }
+            initDots();
+            startTimer();
+        }
+
+        window.ampliarFoto = function(img) {
+            img.classList.toggle('fullscreen');
+            document.body.style.overflow = img.classList.contains('fullscreen') ? 'hidden' : 'auto';
+        }
+    })();
+    </script>
+</body>
+</html>
