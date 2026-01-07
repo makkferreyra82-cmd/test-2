@@ -16,7 +16,7 @@
             font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
             background-color: #f9f9f9;
-            overflow-x: hidden; /* Evita scroll horizontal por las animaciones */
+            overflow-x: hidden;
         }
 
         /* --- SISTEMA DE ANIMACIONES (REVEAL) --- */
@@ -261,7 +261,7 @@
             <p>Queremos compartir contigo la felicidad de nuestra unión</p>
             <p>Sera un honor contar con tu <strong>presencia</strong>.</p>
         </div>
-        <a href="https://form.jotform.com/260032396916054" class="btn-celebracion reveal reveal-pop delay-2" target="_blank">¡Únete a nuestra celebración!</a>
+        <a href="https://form.jotform.com/260032396916054" class="btn-celebracion btn-confirmar reveal reveal-pop delay-2" target="_blank">¡Únete a nuestra celebración!</a>
         <div class="estrellas reveal reveal-up">★★★★★</div>
         <p class="subtitulo-final reveal reveal-up">Un momento inolvidable</p>
     </section>
@@ -462,7 +462,7 @@
                 Por favor, confirma tu asistencia antes del 15 de febrero de 2026. 
             </p> 
             <div> 
-                <a href="https://form.jotform.com/260032396916054" class="btn-celebracion" target="_blank">
+                <a href="https://form.jotform.com/260032396916054" class="btn-celebracion btn-confirmar" target="_blank">
                     CLICK AQUÍ PARA CONFIRMAR
                 </a> 
             </div>                 
@@ -564,6 +564,18 @@
         window.ampliarFoto = function(img) {
             img.classList.toggle('fullscreen');
             document.body.style.overflow = img.classList.contains('fullscreen') ? 'hidden' : 'auto';
+        }
+
+        // --- SCRIPT PARA LINK DINÁMICO (CUPOS) ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const cupo = urlParams.get('cupo');
+
+        if (cupo) {
+            const botones = document.querySelectorAll('.btn-confirmar');
+            botones.forEach(boton => {
+                const union = boton.href.includes('?') ? '&' : '?';
+                boton.href += `${union}cupo=${cupo}`;
+            });
         }
     })();
     </script>
