@@ -161,13 +161,83 @@
         .timer-val { font-size: 45px; font-weight: 600; } 
         .timer-container { display: flex; justify-content: center; gap: 20px; } 
 
-        /* --- ITINERARIO (ORDEN CORREGIDO) --- */
-        .seccion-itinerario { background-color: #fff2e6; padding: 80px 20px; text-align: center; } 
-        .tarjeta-evento { margin-bottom: 60px; display: flex; flex-direction: column; align-items: center; } 
-        .tarjeta-evento h3 { color: var(--color-primario); text-transform: uppercase; margin-bottom: 10px; order: 1; } 
-        .info-logistica { order: 2; font-weight: 600; color: #555; margin-bottom: 15px; } 
-        .foto-lugar { order: 3; width: 100%; max-width: 400px; height: 250px; object-fit: cover; border-radius: 30px; margin-bottom: 20px; } 
-        .btn-ubicacion { order: 4; display: inline-block; padding: 12px 30px; background-color: var(--color-primario); color: white; border-radius: 25px; text-decoration: none; font-weight: bold; } 
+/* --- SECCIÓN ITINERARIO (Lugares & Horarios) --- */
+.seccion-itinerario { 
+    padding: 80px 20px; 
+    text-align: center; 
+    background-color: #ffffff; 
+}
+
+.titulo-itinerario { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; 
+    color: var(--color-primario); /* Título en rosa */
+    margin-bottom: 50px; 
+    text-transform: lowercase; 
+}
+
+.tarjeta-evento { 
+    max-width: 450px; 
+    margin: 0 auto 70px auto; 
+    padding: 0 10px; 
+}
+
+.tarjeta-evento h3 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem; 
+    color: var(--color-primario); /* Subtítulo en rosa */
+    margin-bottom: 5px; 
+}
+
+.descripcion-evento { 
+    font-size: 1rem; 
+    color: #666; 
+    margin-bottom: 15px; 
+    line-height: 1.4; 
+}
+
+.logistica-texto { 
+    font-family: 'Josefin Sans', sans-serif; 
+    font-size: 1.1rem; 
+    margin-bottom: 20px; 
+    color: #333; 
+}
+
+.logistica-texto strong { 
+    font-weight: 700; 
+    color: var(--color-primario); /* Horario en rosa */
+}
+
+.foto-lugar { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 15px; 
+    margin-bottom: 20px;
+    display: block;
+    /* DESACTIVAR CLIC Y AMPLIACIÓN */
+    cursor: default; 
+    pointer-events: none; 
+}
+
+.btn-ubicacion { 
+    display: inline-block; 
+    padding: 10px 30px; 
+    background-color: var(--color-primario); /* BOTÓN ROSA */
+    color: white; 
+    border-radius: 30px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 13px; 
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-ubicacion:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
 
         /* --- VESTIMENTA (ICONOS REDUCIDOS) --- */
         .vestimenta-section { background-color: #f4f0eb; padding: 80px 20px; text-align: center; } 
@@ -366,30 +436,37 @@
 
 /* --- GALERÍA MOSAICO MATEMÁTICO --- */
 .seccion-instantes { 
-    background-color: var(--color-oscuro); 
+    background-color: #ffffff; /* Ajustado para que no sea oscuro si prefieres el fondo blanco */
     padding: 80px 20px; 
     text-align: center; 
 } 
 
+.instantes-titulo { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; 
+    color: var(--color-primario); 
+    margin-bottom: 10px; 
+}
+
+.instantes-texto {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
 .galeria-mosaico { 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en computadoras */
-    grid-auto-rows: 200px; /* Altura de cada bloque horizontal */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-auto-rows: 200px; 
     gap: 15px;
     max-width: 1100px; 
     margin: 0 auto;
-    grid-auto-flow: dense; /* Rellena huecos automáticamente */
+    grid-auto-flow: dense; 
 } 
 
-/* FOTO VERTICAL: Ocupa 2 bloques de altura (total 400px + gap) */
-.foto-v { 
-    grid-row: span 2; 
-}
-
-/* FOTO HORIZONTAL: Ocupa 1 bloque de altura (total 200px) */
-.foto-h { 
-    grid-row: span 1; 
-}
+.foto-v { grid-row: span 2; }
+.foto-h { grid-row: span 1; }
 
 .foto-galeria { 
     width: 100%; 
@@ -400,19 +477,29 @@
     transition: transform 0.3s ease;
 }
 
-.foto-galeria:hover { transform: scale(1.03); }
+/* --- SOLUCIÓN PARA QUE SE AMPLÍEN Y TAPEN TODO --- */
+.foto-galeria.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: contain !important;
+    background-color: rgba(0, 0, 0, 0.98) !important;
+    z-index: 1000000 !important; /* Por encima de los títulos rosas */
+    margin: 0 !important;
+    padding: 20px !important;
+    border-radius: 0 !important;
+    transform: translate(0, 0) !important; /* ELIMINA EL DESPLAZAMIENTO A LA DERECHA */
+    cursor: zoom-out;
+}
 
-/* Ajuste para móviles (FILAS DE 3) */
+/* Ajuste para móviles */
 @media (max-width: 600px) {
     .galeria-mosaico {
-        grid-template-columns: repeat(3, 1fr); /* Cambiado de 2 a 3 */
-        grid-auto-rows: 100px; /* Altura más pequeña para que no se vean gigantes */
-        gap: 8px; /* Espacio más fino entre fotos */
-    }
-
-    /* Ajustamos las fotos verticales para que no ocupen tanto espacio en filas de 3 */
-    .foto-v { 
-        grid-row: span 2; 
+        grid-template-columns: repeat(3, 1fr); 
+        grid-auto-rows: 100px; 
+        gap: 8px; 
     }
 }
 
@@ -789,27 +876,34 @@ section {
                 </div>                 
             </div>             
         </section>         
-        <section id="seccion-itinerario" class="seccion-itinerario">
-            <h2 class="titulo-principal reveal reveal-up">Nuestra Boda</h2> 
-            <article class="tarjeta-evento reveal reveal-up"> 
-                <h3>Ceremonia Religiosa</h3> 
-                <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p> 
-                <time class="info-logistica">17:00 hrs | Parroquia del Espíritu Santo</time>                 
-                <img src="iglesia.webp" class="foto-lugar" alt="Vista de la Parroquia Espíritu Santo"> <a href="https://maps.app.goo.gl/rDadLCkw5FeUiaug8" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-            </article>             
-            <article class="tarjeta-evento reveal reveal-up"> 
-                <h3>Ceremonia Civil</h3> 
-                <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p> 
-                <time class="info-logistica">18:30 hrs | Villa la Moraleja</time>                 
-                <img src="civil.webp" class="foto-lugar" alt="Jardines para ceremonia civil"> <a href="https://maps.app.goo.gl/c6W767okKM4qzYeo6" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-            </article>             
-            <article class="tarjeta-evento reveal reveal-up"> 
-                <h3>Recepción</h3> 
-                <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p> 
-                <time class="info-logistica">19:00 hrs | Villa la Moraleja</time>                 
-                <img src="recepcion.webp" class="foto-lugar" alt="Salón de recepción"> <a href="https://maps.app.goo.gl/c6W767okKM4qzYeo6" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-            </article>             
-        </section>         
+    <section id="seccion-itinerario" class="seccion-itinerario">
+    <h2 class="titulo-itinerario reveal reveal-up">Lugares & Horarios</h2> 
+    
+    <article class="tarjeta-evento reveal reveal-up"> 
+        <h3>Ceremonia Religiosa</h3> 
+        <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p> 
+        <p class="logistica-texto"><strong>17:00 hrs</strong> | Parroquia del Espíritu Santo</p>                 
+        <img src="iglesia.webp" class="foto-lugar" alt="Parroquia Espíritu Santo"> 
+        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-1" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+    </article>             
+
+    <article class="tarjeta-evento reveal reveal-up"> 
+        <h3>Ceremonia Civil</h3> 
+        <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p> 
+        <p class="logistica-texto"><strong>18:30 hrs</strong> | Villa la Moraleja</p>                 
+        <img src="civil.webp" class="foto-lugar" alt="Ceremonia Civil"> 
+        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+    </article>             
+
+    <article class="tarjeta-evento reveal reveal-up"> 
+        <h3>Recepción</h3> 
+        <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p> 
+        <p class="logistica-texto"><strong>19:00 hrs</strong> | Villa la Moraleja</p>                 
+        <img src="recepcion.webp" class="foto-lugar" alt="Recepción"> 
+        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+    </article>             
+</section>             
+</section>
         <section class="vestimenta-section"> 
             <h2 class="vestimenta-titulo reveal reveal-up">Código de Vestimenta</h2> 
             <p class="vestimenta-subtitulo reveal reveal-up">Formal</p> 
@@ -962,7 +1056,21 @@ section {
             <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/543834683410" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
             </div>             <span class="footer-hashtag">#LESLY&ISIDRO2026</span> 
         </footer>         
-        <script>
+    <script>
+    // 1. FUNCIÓN UNIVERSAL PARA AMPLIAR FOTOS (Fuera para que el HTML la vea)
+    window.ampliarFoto = function(img) {
+        if (img.classList.contains('fullscreen')) {
+            img.classList.remove('fullscreen');
+            document.body.style.overflow = 'auto'; // Devuelve el scroll
+        } else {
+            // Cerramos cualquier otra abierta por si acaso
+            document.querySelectorAll('.fullscreen').forEach(el => el.classList.remove('fullscreen'));
+            
+            img.classList.add('fullscreen');
+            document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+        }
+    };
+
     (function () {
         // --- SCRIPT ANIMACIONES ---
         const observerOptions = {
@@ -1002,14 +1110,20 @@ section {
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // --- SCRIPT CARRUSEL ---
+       // --- SCRIPT CARRUSEL (CON SOPORTE TÁCTIL) ---
         const slide = document.getElementById('slide');
         const images = document.querySelectorAll('#slide img');
         const dotsContainer = document.getElementById('dots-container');
+
         if(slide && images.length > 0) {
             let counter = 0;
             const totalImages = images.length;
             let timerCarousel;
+
+            // Variables para el deslizamiento (Touch)
+            let touchStartX = 0;
+            let touchEndX = 0;
+
             function initDots() {
                 for (let i = 0; i < totalImages; i++) {
                     const dot = document.createElement('span');
@@ -1019,28 +1133,65 @@ section {
                     dotsContainer.appendChild(dot);
                 }
             }
+
             function updateDisplay() {
                 slide.style.transform = `translateX(${-counter * 100}%)`;
                 const dots = document.querySelectorAll('.dot');
                 dots.forEach((dot, index) => dot.classList.toggle('active', index === counter));
             }
-            window.moveSlide = function(step) { counter = (counter + step + totalImages) % totalImages; updateDisplay(); resetTimer(); }
-            function goToSlide(index) { counter = index; updateDisplay(); resetTimer(); }
-            function startTimer() { timerCarousel = setInterval(() => { counter = (counter + 1) % totalImages; updateDisplay(); }, 4000); }
-            function resetTimer() { clearInterval(timerCarousel); startTimer(); }
+
+            window.moveSlide = function(step) { 
+                counter = (counter + step + totalImages) % totalImages; 
+                updateDisplay(); 
+                resetTimer(); 
+            }
+
+            function goToSlide(index) { 
+                counter = index; 
+                updateDisplay(); 
+                resetTimer(); 
+            }
+
+            function startTimer() { 
+                timerCarousel = setInterval(() => { 
+                    counter = (counter + 1) % totalImages; 
+                    updateDisplay(); 
+                }, 4000); 
+            }
+
+            function resetTimer() { 
+                clearInterval(timerCarousel); 
+                startTimer(); 
+            }
+
+            // --- LÓGICA DE DESLIZAMIENTO (SWIPE) ---
+            slide.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            slide.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleGesture();
+            }, {passive: true});
+
+            function handleGesture() {
+                const swipeThreshold = 50; // Sensibilidad: cuántos píxeles debe moverse el dedo
+                if (touchStartX - touchEndX > swipeThreshold) {
+                    // Deslizó a la izquierda -> Siguiente foto
+                    moveSlide(1);
+                }
+                if (touchEndX - touchStartX > swipeThreshold) {
+                    // Deslizó a la derecha -> Foto anterior
+                    moveSlide(-1);
+                }
+            }
+
             initDots();
             startTimer();
         }
-
-        window.ampliarFoto = function(img) {
-            img.classList.toggle('fullscreen');
-            document.body.style.overflow = img.classList.contains('fullscreen') ? 'hidden' : 'auto';
-        }
-
         // --- SCRIPT PARA LINK DINÁMICO (CUPOS) ---
         const urlParams = new URLSearchParams(window.location.search);
         const cupo = urlParams.get('cupo');
-
         if (cupo) {
             const botones = document.querySelectorAll('.btn-confirmar');
             botones.forEach(boton => {
@@ -1050,24 +1201,20 @@ section {
         }
     })();
 
-// --- SCRIPT PARA FLECHA INDICADORA DE DESPLAZAMIENTO (SCROLL) ---
-        const arrow = document.getElementById('scroll-indicator');
+    // --- SCRIPT PARA FLECHA INDICADORA DE DESPLAZAMIENTO ---
+    const arrow = document.getElementById('scroll-indicator');
+    setTimeout(() => {
+        if (window.scrollY < 100 && arrow) {
+            arrow.classList.add('show-arrow');
+        }
+    }, 3000); 
 
-        // Aparece tras 3 segundos si el usuario no ha bajado
-        setTimeout(() => {
-            if (window.scrollY < 100 && arrow) {
-                arrow.classList.add('show-arrow');
-            }
-        }, 3000); 
-
-        // Desaparece en cuanto el usuario comienza a navegar
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50 && arrow) {
-                arrow.style.opacity = '0';
-                // Opcional: eliminarla del DOM tras ocultarse para optimizar
-                setTimeout(() => arrow.remove(), 1000);
-            }
-        });
-    </script>         
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50 && arrow) {
+            arrow.style.opacity = '0';
+            setTimeout(() => { if(arrow) arrow.remove(); }, 1000);
+        }
+    });
+</script>        
     </body>     
 </html>
