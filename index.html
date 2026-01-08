@@ -53,26 +53,59 @@
             align-items: center;
             text-align: center;
             color: white;
+            box-sizing: border-box;
         }
-        .hero-content { z-index: 2; }
-        .monograma { width: 120px; margin-bottom: 10px; }
-        .hero h2 { font-weight: 300; letter-spacing: 3px; font-size: 1.2rem; margin-bottom: 5px; text-transform: uppercase; }
-        
+
+        .hero-content { 
+            z-index: 2; 
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .monograma { 
+            width: 120px; 
+            margin-bottom: 10px; 
+        }
+
+        .hero h2 { 
+            font-weight: 300; 
+            letter-spacing: 3px; 
+            font-size: 1.2rem; 
+            margin-bottom: 5px; 
+            text-transform: uppercase; 
+        }
+
+        /* Nombres: Un poco más grandes (6.5rem) con fuente Tangerine */
         .hero h1 { 
             font-family: 'Tangerine', cursive;
-            font-size: 7.5rem; 
+            font-size: 6.5rem; 
             font-weight: 700; 
-            margin-top: 25px; 
+            margin-top: 20px; 
             margin-bottom: 15px; 
-            line-height: 0.7; 
+            line-height: 0.8; 
             text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
-        .divider { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
-        .divider::before, .divider::after { content: ""; height: 1px; width: 50px; background-color: white; margin: 0 15px; }
-        .anillo { font-size: 1.5rem; }
+        .divider { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 20px 0; 
+        }
 
-        /* Fecha aumentada un 20% (de 1.3rem a 1.56rem) */
+        .divider::before, .divider::after { 
+            content: ""; 
+            height: 1px; 
+            width: 50px; 
+            background-color: white; 
+            margin: 0 15px; 
+        }
+
+        .anillo { 
+            font-size: 1.5rem; 
+        }
+
+        /* Fecha aumentada un 20% */
         .fecha { 
             font-size: 1.56rem; 
             font-weight: 300; 
@@ -80,13 +113,23 @@
             letter-spacing: 1px; 
         }
 
-        /* Lugar bajado de posición con margen superior adicional */
+        /* Lugar bajado de posición */
         .lugar { 
             font-size: 1.3rem; 
             font-weight: 300; 
-            margin-top: 12px; /* Espacio extra para bajarlo un poco */
-            margin-bottom: 5px;
+            margin-top: 15px; 
             letter-spacing: 1px; 
+        }
+
+        /* AJUSTE PARA MÓVILES (Fundamental para que no se corte) */
+        @media (max-width: 600px) {
+            .hero h1 { 
+                font-size: 4.5rem; 
+                line-height: 0.9;
+            }
+            .fecha {
+                font-size: 1.3rem;
+            }
         }
 
         /* --- SECCIÓN 2: ESPECIAL --- */
