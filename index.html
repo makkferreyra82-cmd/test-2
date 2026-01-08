@@ -541,21 +541,10 @@
 .nav-container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: sflex-end;
     align-items: center;
     padding: 0 40px; 
     box-sizing: border-box;
-}
-
-.nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; /* Reducido ligeramente para mayor armonía */
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    letter-spacing: 3px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    line-height: 1; /* Elimina espacio extra arriba/abajo del texto */
 }
 
 .nav-links {
@@ -589,11 +578,26 @@ section {
 }
 
 @media (max-width: 600px) {
-    .navbar { margin-top: 5px; padding: 3px 0; }
-    .nav-container { padding: 0 15px; }
-    .nav-links { gap: 12px; }
-    .nav-links a { font-size: 0.55rem; }
-    .nav-logo { font-size: 1.1rem; }
+    .navbar { 
+        margin-top: 5px; 
+        padding: 3px 0; 
+    }
+    .nav-container { 
+        padding: 0 15px; 
+        display: flex;             /* Activamos flexbox */
+        justify-content: flex-end; /* Empuja todo a la derecha */
+    }
+    .nav-links { 
+        display: flex;             /* Asegura que los links estén en línea */
+        gap: 12px; 
+        margin: 0; 
+        padding: 0;
+        list-style: none;
+    }
+    .nav-links a { 
+        font-size: 0.55rem; 
+    }
+    /* El nav-logo ya no es necesario aquí */
 }
         </style>         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap">
@@ -603,8 +607,7 @@ section {
     <body> 
 <nav class="navbar">
     <div class="nav-container">
-        <a href="#" class="nav-logo">Lesly & Isidro</a>
-        <ul class="nav-links">
+         <ul class="nav-links">
             <li><a href="#">Inicio</a></li>
             <li><a href="#seccion-itinerario">Evento</a></li>
             <li><a href="#seccion-regalos">Regalos</a></li>
@@ -843,7 +846,7 @@ section {
 </div>
             <p class="footer-thanks reveal reveal-up"> 
             Con todo nuestro amor, gracias por ser parte de nuestra historia.  </p> 
-            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/493834683410" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
+            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/543834683410" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
             </div>             <span class="footer-hashtag">#LESLY&ISIDRO2026</span> 
         </footer>         
         <script>
