@@ -253,14 +253,64 @@
             }
         }
 
-        /* --- SECCIÓN 3: CONTADOR --- */
-        #contador { background-color: #823c2e; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
-        #contador h3 { font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; font-size: 2rem; }
-        .timer-container { display: flex; justify-content: center; align-items: baseline; gap: 15px; }
-        .timer-unit { display: flex; flex-direction: column; align-items: center; min-width: 65px; }
-        .timer-val { font-size: 45px; font-weight: 600; line-height: 1; margin-bottom: 8px; }
-        .label { text-transform: uppercase; letter-spacing: 1.5px; font-size: 10px; opacity: 0.8; }
+/* --- SECCIÓN 3: CONTADOR (ESTILO FINAL) --- */
+        #contador { 
+            background-color: #823c2e; 
+            padding: 60px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            text-align: center; 
+        }
 
+        /* Título reducido a 24px y con fuente Josefin */
+        #contador h3 { 
+            font-family: 'Josefin Sans', sans-serif;
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            margin-bottom: 30px; 
+            font-size: 24px; /* Ajustado a 24px según lo pedido */
+        }
+
+        .timer-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: baseline; 
+            gap: 20px; 
+        }
+
+        .timer-unit { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-width: 80px; 
+        }
+
+        .timer-val { 
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 60px; 
+            font-weight: 600; 
+            line-height: 1; 
+            margin-bottom: 8px; 
+        }
+
+        .label { 
+            font-family: 'Josefin Sans', sans-serif;
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-size: 13px; 
+            opacity: 0.9; 
+        }
+
+        @media (max-width: 600px) {
+            #contador h3 { font-size: 20px; } /* Un poco más pequeño en móvil */
+            .timer-container { gap: 10px; }
+            .timer-unit { min-width: 60px; }
+            .timer-val { font-size: 40px; }
+            .label { font-size: 9px; }
+        }
         /* --- SECCIÓN 4: ITINERARIO --- */
         .seccion-itinerario { background-color: #fff2e6; padding: 80px 20px; text-align: center; font-family: 'Playfair Display', serif; }
         .titulo-principal { font-size: 2.5rem; color: #823c2e; margin-bottom: 40px; font-style: italic; }
@@ -425,7 +475,7 @@
     </section>
 
     <section id="contador">
-        <h3 class="reveal reveal-up">¡Falta poco!</h3>
+        <h3 class="reveal reveal-up">NOS VEMOS EN</h3>
         <div id="wedding-timer" class="reveal reveal-pop">
             <div class="timer-container">
                 <div class="timer-unit"><span id="d_val" class="timer-val">00</span><span class="label">Días</span></div>
