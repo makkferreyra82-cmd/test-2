@@ -45,11 +45,64 @@
         .divider { display: flex; align-items: center; justify-content: center; margin: 20px 0; } 
         .divider::before, .divider::after { content: ""; height: 1px; width: 50px; background-color: white; margin: 0 15px; } 
 
-        /* --- SECCIÓN ESPECIAL --- */
-        #especial { position: relative; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fondoseccion02.webp'); background-size: cover; background-position: center; color: #ffffff; padding: 100px 20px; text-align: center; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; } 
-        .titulo-boda { font-size: 2.8rem; margin-bottom: 40px; font-family: 'Playfair Display', serif; } 
-        .btn-celebracion { display: inline-block; background-color: var(--color-primario); color: white; padding: 18px 45px; border-radius: 40px; text-decoration: none; font-weight: 600; margin-top: 30px; transition: 0.3s; } 
+/* --- SECCIÓN ESPECIAL --- */
+        #especial { 
+            position: relative; 
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('fondoseccion02.webp') no-repeat center center; 
+            background-size: cover; 
+            color: #ffffff; 
+            padding: 80px 20px 60px 20px; 
+            text-align: center; 
+            min-height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+        } 
 
+        .titulo-boda { 
+            font-size: 2.8rem; 
+            margin-bottom: 60px; 
+            font-family: 'Playfair Display', serif; 
+        } 
+
+        .estrellas {
+            font-size: 28px; /* <--- Estrellas reducidas como pediste */
+            margin-bottom: 2px; /* <--- Casi pegadas a la frase */
+            color: #ffffff;
+            letter-spacing: 4px;
+        }
+
+        .frase-especial {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-top: 0; 
+            margin-bottom: 110px; /* <--- ESTO ALEJA MUCHO EL BOTÓN HACIA ABAJO */
+            line-height: 1.2;
+            max-width: 280px;
+        }
+
+        .btn-celebracion { 
+            display: inline-block; 
+            background-color: var(--color-primario); 
+            color: white; 
+            padding: 12px 25px; 
+            border-radius: 40px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 13px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s; 
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-celebracion:hover {
+            transform: scale(1.05);
+        }
 /* --- CARRUSEL CORREGIDO --- */
         .carousel-section { padding: 50px 0; background-color: var(--color-oscuro); } 
         
@@ -693,7 +746,7 @@ section {
             <div class="texto-contenedor reveal reveal-up delay-1"> 
                 <p style="font-size: 17px; font-family: 'Gotu', sans-serif;">Tenemos el gusto de invitarte a este día tan importante de nuestras vidas</p> 
                 <p style="font-family: 'Gotu', sans-serif; font-size: 16px;">Queremos compartir contigo la felicidad de nuestra unión</p> 
-                <p>Sera un honor contar con tu <strong style="font-family: 'Gotu', sans-serif;">presencia</strong>.</p> 
+                <p>Esperamos contar con tu presencia</p> 
             </div>            <a href="#seccion-rsvp" class="btn-celebracion btn-deslizar reveal reveal-pop delay-2">¡Únete a nuestra celebración!</a>
             <div class="estrellas reveal reveal-up">★★★★★</div>             
             <p class="subtitulo-final reveal reveal-up">Un momento inolvidable</p> 
