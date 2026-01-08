@@ -615,6 +615,45 @@ section {
     }
     /* El nav-logo ya no es necesario aquí */
 }
+
+/* --- ESTILOS DE FLECHA INDICADORA (SCROLL) --- */
+.scroll-arrow {
+    position: absolute;
+    bottom: 30px; /* Distancia del borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white; /* Puedes cambiarlo a #d4af37 si prefieres el dorado */
+    text-align: center;
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 1.5s ease; /* Aparece suavemente */
+    z-index: 10;
+    pointer-events: none; /* Para que no estorbe si alguien hace clic cerca */
+}
+
+.scroll-arrow p {
+    font-size: 10px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+}
+
+.scroll-arrow i {
+    font-size: 20px;
+    animation: bounce 2s infinite; /* Movimiento de rebote */
+}
+
+/* Animación de rebote suave */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Clase que activa el script después de los 5 segundos */
+.show-arrow {
+    opacity: 0.8;
+}
         </style>         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotu&display=swap">
@@ -632,25 +671,30 @@ section {
         </ul>
     </div>
 </nav>
-        <section class="hero"> 
-            <div class="hero-content reveal reveal-pop"> 
-                <img src="monograma01.webp" alt="Logo" class="monograma"> 
-                <h2>Nos casamos</h2> 
-                <h1>Lesly &<br>Isidro</h1> 
-                <div class="divider">
-                    <span class="anillo">💍</span>
-                </div>                 
-                <p class="fecha">07 de marzo, 2026</p> 
-                <p class="lugar">Villa la Moraleja, Dgo.</p> 
-            </div>             
-        </section>         
+      <section class="hero"> 
+    <div class="hero-content reveal reveal-pop"> 
+        <img src="monograma01.webp" alt="Logo" class="monograma"> 
+        <h2>Nos casamos</h2> 
+        <h1>Lesly &<br>Isidro</h1> 
+        <div class="divider">
+            <span class="anillo">💍</span>
+        </div>                 
+        <p class="fecha">07 de marzo, 2026</p> 
+        <p class="lugar">Villa la Moraleja, Dgo.</p> 
+    </div>
+
+    <div id="scroll-indicator" class="scroll-arrow">
+        <p>Desliza</p>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>     
         <section id="especial"> 
             <h2 class="titulo-boda reveal reveal-up">NUESTRA BODA, <br>UN DIA ESPECIAL&nbsp;</h2> 
             <div class="texto-contenedor reveal reveal-up delay-1"> 
                 <p style="font-size: 17px; font-family: 'Gotu', sans-serif;">Tenemos el gusto de invitarte a este día tan importante de nuestras vidas</p> 
                 <p style="font-family: 'Gotu', sans-serif; font-size: 16px;">Queremos compartir contigo la felicidad de nuestra unión</p> 
                 <p>Sera un honor contar con tu <strong style="font-family: 'Gotu', sans-serif;">presencia</strong>.</p> 
-            </div>            <a href="#seccion-rsvp" class="btn-celebracion btn-confirmar reveal reveal-pop delay-2">¡Únete a nuestra celebración!</a>
+            </div>            <a href="#seccion-rsvp" class="btn-celebracion btn-deslizar reveal reveal-pop delay-2">¡Únete a nuestra celebración!</a>
             <div class="estrellas reveal reveal-up">★★★★★</div>             
             <p class="subtitulo-final reveal reveal-up">Un momento inolvidable</p> 
         </section>         
@@ -952,6 +996,25 @@ section {
             });
         }
     })();
+
+// --- SCRIPT PARA FLECHA INDICADORA DE DESPLAZAMIENTO (SCROLL) ---
+        const arrow = document.getElementById('scroll-indicator');
+
+        // Aparece tras 3 segundos si el usuario no ha bajado
+        setTimeout(() => {
+            if (window.scrollY < 100 && arrow) {
+                arrow.classList.add('show-arrow');
+            }
+        }, 3000); 
+
+        // Desaparece en cuanto el usuario comienza a navegar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50 && arrow) {
+                arrow.style.opacity = '0';
+                // Opcional: eliminarla del DOM tras ocultarse para optimizar
+                setTimeout(() => arrow.remove(), 1000);
+            }
+        });
     </script>         
     </body>     
 </html>
