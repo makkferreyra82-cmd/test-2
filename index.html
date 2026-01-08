@@ -14,7 +14,7 @@
 
 <meta name="robots" content="noindex, nofollow">
       
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Josefin+Sans:wght@300;400;600&family=Gotu&family=Poppins:wght@300;400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Josefin+Sans:wght@300;400;600&family=Gotu&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
         <style>
 /* =========================================
@@ -27,23 +27,188 @@
             --color-dorado: #f2c94c;         /* Línea del cronograma */
         }
 
-        /* --- ESTILOS GLOBALES --- */
-        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; background-color: #f9f9f9; overflow-x: hidden; } 
+/* --- ESTILOS GLOBALES DE TEXTO --- */
+body {
+    font-family: 'Gotu', serif; /* Fuente por defecto para textos descriptivos */
+    color: #333;
+    line-height: 1.6;
+}
 
-        /* --- ANIMACIONES --- */
-        .reveal { opacity: 0; transition: all 1s cubic-bezier(0.2, 0.6, 0.35, 1); filter: blur(5px); will-change: transform, opacity; } 
-        .reveal-up { transform: translateY(60px); } 
-        .reveal-left { transform: translateX(-60px); } 
-        .reveal-right { transform: translateX(60px); } 
-        .reveal-pop { transform: scale(0.85); } 
-        .reveal.active { opacity: 1; transform: translate(0) scale(1); filter: blur(0); } 
+/* Títulos de Secciones Unificados */
+h2, .section-title {
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 2rem; /* Tamaño unificado */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #444;
+    margin-bottom: 30px;
+    text-align: center;
+}
 
-        /* --- HERO --- */
-        .hero { position: relative; height: 100vh; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('pareja.webp'); background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; text-align: center; color: white; } 
-        .monograma { width: 120px; margin-bottom: 10px; } 
-        .hero h1 { font-size: 3.5rem; font-weight: 600; margin: 0; line-height: 1.1; } 
-        .divider { display: flex; align-items: center; justify-content: center; margin: 20px 0; } 
-        .divider::before, .divider::after { content: ""; height: 1px; width: 50px; background-color: white; margin: 0 15px; } 
+/* Textos Descriptivos (Párrafos) */
+p, .texto-descriptivo {
+    font-family: 'Gotu', serif !important;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+/* =========================================
+   CARRUSEL A ANCHO COMPLETO (REEMPLAZO)
+   ========================================= */
+
+/* 1. Ajuste de la sección principal para eliminar márgenes laterales */
+.carousel-section { 
+    padding: 0 !important; /* Elimina el espacio que impide que la foto llegue al borde */
+    background-color: var(--color-oscuro); 
+    width: 100%;
+    overflow: hidden;
+} 
+
+/* 2. Contenedor del carrusel a ancho total de ventana (100vw) */
+.carousel-container { 
+    position: relative; 
+    width: 100vw; 
+    max-width: none; 
+    margin: 0; 
+    padding: 0;
+    overflow: hidden; 
+    border-radius: 0; /* Sin bordes redondeados para un efecto inmersivo */
+} 
+
+/* 3. El riel de las imágenes */
+.carousel-slide { 
+    display: flex; 
+    /* La transición se maneja por JS para el efecto infinito real */
+} 
+
+/* 4. Imágenes ocupando todo el ancho y alto del visor */
+.carousel-slide img { 
+    width: 100vw;      /* Forzado al ancho total del celular */
+    height: 70vh;      /* Altura elegante al 70% de la pantalla */
+    object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformarla */
+    flex-shrink: 0; 
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+} 
+
+/* 5. Ajuste de botones (flechas) sobre la imagen */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3); /* Fondo sutil para visibilidad */
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover { 
+    background: var(--color-primario); 
+}
+
+.prev { left: 10px; } 
+.next { right: 10px; }
+
+/* 6. Puntos de navegación (dots) */
+.carousel-dots { 
+    text-align: center; 
+    padding: 15px 0;
+    background-color: var(--color-oscuro); 
+}
+
+.dot { 
+    display: inline-block; 
+    width: 8px; 
+    height: 8px; 
+    margin: 0 5px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 50%; 
+    cursor: pointer; 
+    transition: 0.3s;
+}
+
+.dot.active { 
+    background-color: var(--color-primario); 
+    transform: scale(1.3); 
+}
+
+/* --- SECCIÓN HERO (PORTADA) --- */
+.hero { 
+    position: relative; 
+    height: 100vh; /* Pantalla completa siempre */
+    width: 100%; 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pareja.webp'); 
+    background-size: cover; 
+    background-position: center; /* Centrado para celular */
+    background-repeat: no-repeat;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    color: white; 
+} 
+
+/* --- AJUSTE ARTÍSTICO PARA PC (Enfoque en manos) --- */
+@media (min-width: 1024px) {
+    .hero {
+        /* 65% sube la imagen lo necesario para ver manos/cintura sin llegar a los pies */
+        background-position: center 65%; 
+    }
+}
+
+/* --- ELEMENTOS DENTRO DEL HERO --- */
+.monograma { 
+    width: 120px; 
+    margin-bottom: 15px; 
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
+} 
+
+.hero h1 { 
+    font-family: 'Tangerine', cursive; /* Nueva fuente aplicada */
+    font-size: 6rem; /* Tamaño aumentado para Tangerine */
+    font-weight: 700; 
+    margin: 0; 
+    line-height: 0.8; /* Ajuste para que los nombres estén más cerca */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
+    letter-spacing: 1px;
+} 
+
+.divider { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 25px 0; 
+} 
+
+.divider::before, .divider::after { 
+    content: ""; 
+    height: 1px; 
+    width: 60px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    margin: 0 15px; 
+}
+
+/* --- RESPONSIVE CELULAR --- */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 4.5rem; /* Ajuste para que quepa bien en pantallas móviles */
+    }
+    .monograma {
+        width: 100px;
+    }
+}
 
 /* --- SECCIÓN ESPECIAL --- */
         #especial { 
@@ -173,7 +338,8 @@
     font-size: 2.5rem; 
     color: var(--color-primario); /* Título en rosa */
     margin-bottom: 50px; 
-    text-transform: lowercase; 
+    text-transform: uppercase; /* Convertido a MAYÚSCULAS */
+    letter-spacing: 3px;       /* Espaciado elegante para mayúsculas */
 }
 
 .tarjeta-evento { 
@@ -186,7 +352,8 @@
     font-family: 'Playfair Display', serif; 
     font-size: 1.8rem; 
     color: var(--color-primario); /* Subtítulo en rosa */
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
+    text-transform: none; /* Puedes cambiar a uppercase si quieres estos también */
 }
 
 .descripcion-evento { 
@@ -297,26 +464,27 @@
     object-fit: cover;
 }
 
-/* --- CRONOGRAMA (DISEÑO PREMIUM CON ICONOS DE COLOR) --- */
+/* --- CRONOGRAMA UNIFICADO (DISEÑO LIMPIO) --- */
 .seccion-cronograma { 
     background-color: #fffaf5; 
     padding: 80px 20px; 
     text-align: center;
 } 
 
-.header-cronograma h2 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 3rem; 
-    color: var(--color-secundario); 
-    margin-bottom: 10px; 
-    font-style: italic;
+/* Título unificado: Recto, Josefin Sans y Mayúsculas */
+.seccion-cronograma h2 { 
+    font-family: 'Josefin Sans', sans-serif !important; 
+    font-size: 2rem !important; 
+    color: #444 !important; 
+    margin-bottom: 40px !important; 
+    font-style: normal !important; /* QUITA LA INCLINACIÓN */
+    text-transform: uppercase !important; /* FUERZA MAYÚSCULAS */
+    letter-spacing: 4px !important;
 } 
 
+/* Ocultamos el subtítulo o párrafo extra que pudiera haber quedado */
 .header-cronograma p {
-    font-family: 'Montserrat', sans-serif;
-    color: #666;
-    margin-bottom: 50px;
-    font-size: 1.1rem;
+    display: none;
 }
 
 .timeline-container { 
@@ -385,11 +553,11 @@
     transform: translateY(-5px);
 }
 
-/* --- ESTILO DE ICONOS CIRCULARES CON COLOR --- */
+/* --- ICONOS Y TEXTOS INTERNOS --- */
 .icono-circulo {
     width: 55px;
     height: 55px;
-    border-radius: 50%; /* Círculo perfecto */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -398,18 +566,11 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* Colores de fondo recuperados */
-.bg-pink { background-color: #ffebee !important; color: var(--color-primario) !important; }
-.bg-orange { background-color: #fff3e0 !important; color: #fb8c00 !important; }
-.bg-purple { background-color: #f3e5f5 !important; color: #8e24aa !important; }
-.bg-blue { background-color: #e3f2fd !important; color: #1e88e5 !important; }
-.bg-green { background-color: #e8f5e9 !important; color: #43a047 !important; }
-
 .info-texto h3 { 
     margin: 0; 
     font-size: 1.1rem; 
     color: #333; 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Gotu', serif !important; /* Fuente unificada */
 }
 
 .info-texto .hora { 
@@ -420,7 +581,14 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-/* --- RESPONSIVE (MÓVILES) --- */
+/* Colores de iconos */
+.bg-pink { background-color: #ffebee !important; color: var(--color-primario) !important; }
+.bg-orange { background-color: #fff3e0 !important; color: #fb8c00 !important; }
+.bg-purple { background-color: #f3e5f5 !important; color: #8e24aa !important; }
+.bg-blue { background-color: #e3f2fd !important; color: #1e88e5 !important; }
+.bg-green { background-color: #e8f5e9 !important; color: #43a047 !important; }
+
+/* --- RESPONSIVE --- */
 @media (max-width: 600px) { 
     .timeline-container::after { left: 20px; } 
     .timeline-item { 
@@ -564,27 +732,28 @@
     filter: brightness(1.1);
 }
 
-/* --- FOOTER WEDDING (DISEÑO FINAL) --- */
+/* --- FOOTER WEDDING (UNIFICADO Y OSCURO) --- */
 .footer-wedding {
     padding: 80px 20px;
-    background-color: #fdfcfb; 
+ background-color: #3b2c35 !important; /* Nuevo color oscuro */
     text-align: center;
-    border-top: 1px solid #f0e6d6;
+    color: white !important;
 }
 
 .footer-names {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: var(--color-secundario);
+    font-family: 'Tangerine', cursive !important;
+    font-size: 5.5rem !important; /* Tamaño grande para que luzca */
+    color: white !important;
     margin-bottom: 10px;
+    text-transform: none !important;
 }
 
 .footer-date {
-    font-family: 'Josefin Sans', sans-serif;
-    letter-spacing: 3px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    font-size: 1rem;
-    color: #888;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 25px;
 }
 
@@ -592,21 +761,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Espacio entre las líneas y el corazón */
+    gap: 15px;
     margin: 0 auto 25px;
-    max-width: 250px; /* Ancho total del conjunto */
+    max-width: 250px;
 }
 
 .footer-divider-container .line {
     flex: 1;
     height: 1px;
-    background-color: var(--color-secundario);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .footer-heart {
-    color: var(--color-secundario);
+    color: #e63946;
     font-size: 0.8rem;
-    /* Animación opcional de latido */
     animation: heartbeat 1.5s infinite;
 }
 
@@ -617,15 +785,15 @@
 }
 
 .footer-thanks {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Gotu', serif !important; /* Fuente descriptiva */
     font-size: 1.1rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     max-width: 500px;
     margin: 0 auto 35px;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
-/* TUS BOTONES DE WHATSAPP */
+/* BOTONES DE WHATSAPP OSCUROS */
 .ws-container {
     display: flex;
     justify-content: center;
@@ -639,26 +807,25 @@
     align-items: center;
     gap: 10px;
     padding: 12px 25px;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50px;
-    color: #444;
+    color: white;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 400;
     transition: all 0.3s ease;
 }
 
 .ws-btn:hover {
-    border-color: #25d366;
-    color: #25d366;
+    background-color: white;
+    color: #1a1a1a;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .ws-btn i {
-    color: #25d366;
+    color: #25d366; /* Mantenemos el verde solo en el icono */
     font-size: 1.1rem;
 }
 
@@ -667,7 +834,7 @@
     display: block;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 0.9rem;
-    color: #b58d52;
+    color: rgba(255, 255, 255, 0.5);
     letter-spacing: 4px;
     margin-top: 20px;
     font-weight: bold;
@@ -794,6 +961,54 @@ section {
 .show-arrow {
     opacity: 0.8;
 }
+/* --- AJUSTE PARA SECCIONES CON FOTO DE FONDO (TEXTOS BLANCOS) --- */
+
+/* 1. Forzar blanco en el Hero (Sección 1) */
+.hero, 
+.hero .hero-subtitulo, 
+.hero h1, 
+.hero .fecha-grande,
+.hero #scroll-indicator p {
+    color: #ffffff !important;
+}
+
+/* 2. Forzar blanco en la Sección Especial (Tu Sección 2) */
+#especial, 
+#especial h2, 
+#especial p, 
+#especial .titulo-boda,
+#especial .subtitulo-final,
+#especial .estrellas {
+    color: #ffffff !important;
+}
+
+/* 3. Asegurar que las líneas y el botón de la sección especial se vean bien */
+#especial .btn-celebracion {
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    background: transparent;
+}
+
+#especial .btn-celebracion:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* 4. Líneas divisorias blancas para Hero y Especial */
+.hero .divider::before, 
+.hero .divider::after,
+#especial .divider-flower::before,
+#especial .divider-flower::after {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* --- TEXTO OSCURO PARA EL RESTO --- */
+/* Esto mantiene el texto oscuro en Regalos, Ubicación, etc. */
+section:not(.hero):not(#especial) p,
+section:not(.hero):not(#especial) h2 {
+    color: #333333;
+}
+
         </style>         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotu&display=swap">
@@ -812,16 +1027,14 @@ section {
     </div>
 </nav>
       <section class="hero"> 
-    <div class="hero-content reveal reveal-pop"> 
-        <img src="monograma01.webp" alt="Logo" class="monograma"> 
-        <h2>Nos casamos</h2> 
-        <h1>Lesly &<br>Isidro</h1> 
-        <div class="divider">
-            <span class="anillo">💍</span>
-        </div>                 
-        <p class="fecha">07 de marzo, 2026</p> 
-        <p class="lugar">Villa la Moraleja, Dgo.</p> 
-    </div>
+   <div class="hero-content reveal"> 
+    <img src="monograma01.webp" alt="Logo" class="monograma"> 
+    <p class="hero-subtitulo">Nos casamos</p> 
+    <h1>Lesly &<br>Isidro</h1> 
+    <div class="divider">💍</div>                 
+    <p class="hero-subtitulo fecha-grande">07 . 03 . 2026</p> 
+    <p class="hero-subtitulo" style="font-size: 0.8rem; margin-top: 10px;">Villa la Moraleja, Dgo.</p> 
+</div>
 
     <div id="scroll-indicator" class="scroll-arrow">
         <p>Desliza</p>
@@ -877,7 +1090,7 @@ section {
             </div>             
         </section>         
     <section id="seccion-itinerario" class="seccion-itinerario">
-    <h2 class="titulo-itinerario reveal reveal-up">Lugares & Horarios</h2> 
+    <h2 class="titulo-itinerario reveal reveal-up">LUGARES & HORARIOS</h2> 
     
     <article class="tarjeta-evento reveal reveal-up"> 
         <h3>Ceremonia Religiosa</h3> 
@@ -903,7 +1116,6 @@ section {
         <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
     </article>             
 </section>             
-</section>
         <section class="vestimenta-section"> 
             <h2 class="vestimenta-titulo reveal reveal-up">Código de Vestimenta</h2> 
             <p class="vestimenta-subtitulo reveal reveal-up">Formal</p> 
@@ -964,8 +1176,7 @@ section {
 </section>
         <section class="seccion-cronograma"> 
             <header class="header-cronograma reveal reveal-up"> 
-                <h2>El gran día</h2> 
-                <h1>Cronograma</h1> 
+                <h2>CRONOGRAMA</h2> 
                 <p class="subtitulo-cronograma"> 
                 Hemos preparado un día lleno de momentos especiales. Aquí tienes el programa completo. </p> 
             </header>             
@@ -1043,45 +1254,57 @@ section {
                 </div>                 
             </div>             
         </section>         
-        <footer class="footer-wedding"> 
-            <h2 class="footer-names reveal reveal-up">Lesly & Isidro</h2> 
-            <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>  
-        <div class="footer-divider-container reveal reveal-up">
-    <div class="line"></div>
-    <i class="fa-solid fa-heart footer-heart"></i>
-    <div class="line"></div>
-</div>
-            <p class="footer-thanks reveal reveal-up"> 
-            Con todo nuestro amor, gracias por ser parte de nuestra historia.  </p> 
-            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/543834683410" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
-            </div>             <span class="footer-hashtag">#LESLY&ISIDRO2026</span> 
-        </footer>         
-    <script>
-    // 1. FUNCIÓN UNIVERSAL PARA AMPLIAR FOTOS (Fuera para que el HTML la vea)
+<footer class="footer-wedding"> 
+    <h2 class="footer-names reveal reveal-up">Lesly & Isidro</h2> 
+    
+    <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>  
+
+    <div class="footer-divider-container reveal reveal-up">
+        <div class="line"></div>
+        <i class="fa-solid fa-heart footer-heart"></i>
+        <div class="line"></div>
+    </div>
+
+    <p class="footer-thanks reveal reveal-up"> 
+        Con todo nuestro amor, gracias por ser parte de nuestra historia. 
+    </p> 
+
+    <div class="ws-container reveal reveal-pop"> 
+        <a href="https://wa.me/5218713607260" class="ws-btn" target="_blank"> 
+            <i class="fab fa-whatsapp"></i> WhatsApp Lesly
+        </a> 
+        <a href="https://wa.me/5218715983056" class="ws-btn" target="_blank"> 
+            <i class="fab fa-whatsapp"></i> WhatsApp Isidro
+        </a> 
+    </div>
+
+    <span class="footer-hashtag reveal reveal-up">#LESLY&ISIDRO2026</span> 
+</footer>         
+<script>
+    // 1. FUNCIÓN UNIVERSAL PARA AMPLIAR FOTOS
     window.ampliarFoto = function(img) {
         if (img.classList.contains('fullscreen')) {
             img.classList.remove('fullscreen');
-            document.body.style.overflow = 'auto'; // Devuelve el scroll
+            document.body.style.overflow = 'auto';
         } else {
-            // Cerramos cualquier otra abierta por si acaso
             document.querySelectorAll('.fullscreen').forEach(el => el.classList.remove('fullscreen'));
-            
             img.classList.add('fullscreen');
-            document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+            document.body.style.overflow = 'hidden';
         }
     };
 
     (function () {
         // --- SCRIPT ANIMACIONES ---
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
+            threshold: 0.01,
+            rootMargin: "0px 0px 0px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -1110,84 +1333,87 @@ section {
         setInterval(updateTimer, 1000);
         updateTimer();
 
-       // --- SCRIPT CARRUSEL (CON SOPORTE TÁCTIL) ---
+        // --- SCRIPT CARRUSEL INFINITO REAL (SIN REGRESO BRUSCO) ---
         const slide = document.getElementById('slide');
         const images = document.querySelectorAll('#slide img');
         const dotsContainer = document.getElementById('dots-container');
 
         if(slide && images.length > 0) {
-            let counter = 0;
-            const totalImages = images.length;
-            let timerCarousel;
+            // Clonamos para el efecto infinito
+            const firstClone = images[0].cloneNode(true);
+            const lastClone = images[images.length - 1].cloneNode(true);
+            slide.appendChild(firstClone);
+            slide.insertBefore(lastClone, images[0]);
 
-            // Variables para el deslizamiento (Touch)
-            let touchStartX = 0;
-            let touchEndX = 0;
+            const allImages = document.querySelectorAll('#slide img');
+            let counter = 1; // Empezamos en la primera imagen real (no el clon)
+            const size = 100;
+
+            // Posición inicial
+            slide.style.transform = `translateX(${-counter * size}%)`;
+
+            function updateDisplay() {
+                slide.style.transition = "transform 0.5s ease-in-out";
+                slide.style.transform = `translateX(${-counter * size}%)`;
+                
+                // Actualizar puntos (dots)
+                const dots = document.querySelectorAll('.dot');
+                let dotIndex = counter - 1;
+                if (counter >= allImages.length - 1) dotIndex = 0;
+                if (counter <= 0) dotIndex = images.length - 1;
+                dots.forEach((dot, index) => dot.classList.toggle('active', index === dotIndex));
+            }
+
+            // Reset invisible cuando llega a los clones
+            slide.addEventListener('transitionend', () => {
+                if (counter >= allImages.length - 1) {
+                    slide.style.transition = "none";
+                    counter = 1;
+                    slide.style.transform = `translateX(${-counter * size}%)`;
+                }
+                if (counter <= 0) {
+                    slide.style.transition = "none";
+                    counter = allImages.length - 2;
+                    slide.style.transform = `translateX(${-counter * size}%)`;
+                }
+            });
+
+            window.moveSlide = function(step) {
+                counter += step;
+                updateDisplay();
+                resetTimer();
+            }
 
             function initDots() {
-                for (let i = 0; i < totalImages; i++) {
+                dotsContainer.innerHTML = ""; 
+                for (let i = 0; i < images.length; i++) {
                     const dot = document.createElement('span');
                     dot.classList.add('dot');
                     if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(i));
+                    dot.addEventListener('click', () => {
+                        counter = i + 1;
+                        updateDisplay();
+                        resetTimer();
+                    });
                     dotsContainer.appendChild(dot);
                 }
             }
 
-            function updateDisplay() {
-                slide.style.transform = `translateX(${-counter * 100}%)`;
-                const dots = document.querySelectorAll('.dot');
-                dots.forEach((dot, index) => dot.classList.toggle('active', index === counter));
-            }
-
-            window.moveSlide = function(step) { 
-                counter = (counter + step + totalImages) % totalImages; 
-                updateDisplay(); 
-                resetTimer(); 
-            }
-
-            function goToSlide(index) { 
-                counter = index; 
-                updateDisplay(); 
-                resetTimer(); 
-            }
-
-            function startTimer() { 
-                timerCarousel = setInterval(() => { 
-                    counter = (counter + 1) % totalImages; 
-                    updateDisplay(); 
-                }, 4000); 
-            }
-
+            let timer = setInterval(() => moveSlide(1), 4000);
             function resetTimer() { 
-                clearInterval(timerCarousel); 
-                startTimer(); 
+                clearInterval(timer); 
+                timer = setInterval(() => moveSlide(1), 4000); 
             }
 
-            // --- LÓGICA DE DESLIZAMIENTO (SWIPE) ---
-            slide.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
+            let touchStartX = 0;
+            slide.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, {passive: true});
+            slide.addEventListener('touchend', e => {
+                const touchEndX = e.changedTouches[0].clientX;
+                if (touchStartX - touchEndX > 50) moveSlide(1);
+                if (touchEndX - touchStartX > 50) moveSlide(-1);
             }, {passive: true});
-
-            slide.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleGesture();
-            }, {passive: true});
-
-            function handleGesture() {
-                const swipeThreshold = 50; // Sensibilidad: cuántos píxeles debe moverse el dedo
-                if (touchStartX - touchEndX > swipeThreshold) {
-                    // Deslizó a la izquierda -> Siguiente foto
-                    moveSlide(1);
-                }
-                if (touchEndX - touchStartX > swipeThreshold) {
-                    // Deslizó a la derecha -> Foto anterior
-                    moveSlide(-1);
-                }
-            }
 
             initDots();
-            startTimer();
         }
         // --- SCRIPT PARA LINK DINÁMICO (CUPOS) ---
         const urlParams = new URLSearchParams(window.location.search);
@@ -1201,7 +1427,7 @@ section {
         }
     })();
 
-    // --- SCRIPT PARA FLECHA INDICADORA DE DESPLAZAMIENTO ---
+    // --- SCRIPT PARA FLECHA INDICADORA ---
     const arrow = document.getElementById('scroll-indicator');
     setTimeout(() => {
         if (window.scrollY < 100 && arrow) {
@@ -1215,6 +1441,6 @@ section {
             setTimeout(() => { if(arrow) arrow.remove(); }, 1000);
         }
     });
-</script>        
+</script>       
     </body>     
 </html>
