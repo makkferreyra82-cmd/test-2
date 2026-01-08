@@ -40,7 +40,7 @@
         .delay-1 { transition-delay: 0.2s; }
         .delay-2 { transition-delay: 0.4s; }
 
-/* --- SECCIÓN 1: HERO --- */
+/* --- SECCIÓN 1: HERO (SUBIDO +10PX) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -62,28 +62,32 @@
             padding: 0 20px;
         }
 
+        /* Monograma: Subido 10px más (de 24px a 34px) */
         .monograma { 
-            width: 120px; 
-            margin-bottom: 10px; 
+            width: 100px; 
+            margin-bottom: 34px; 
         }
 
+        /* "NOS CASAMOS": Subido 10px más (de 29px a 39px) */
         .hero h2 { 
+            font-family: 'Josefin Sans', sans-serif;
             font-weight: 300; 
-            letter-spacing: 3px; 
-            font-size: 1.2rem; 
-            margin-bottom: 5px; 
+            letter-spacing: 4px; 
+            font-size: 1rem; 
+            margin-bottom: 39px; 
             text-transform: uppercase; 
+            opacity: 0.9;
         }
 
-        /* Nombres: Un poco más grandes (6.5rem) con fuente Tangerine */
+        /* "ISIDRO & LESLY": Sigue con su tamaño protagonista */
         .hero h1 { 
             font-family: 'Tangerine', cursive;
-            font-size: 6.5rem; 
+            font-size: 11rem; 
             font-weight: 700; 
-            margin-top: 20px; 
-            margin-bottom: 15px; 
-            line-height: 0.8; 
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            margin-top: 30px; 
+            margin-bottom: 20px; 
+            line-height: 0.7; 
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
         }
 
         .divider { 
@@ -96,16 +100,16 @@
         .divider::before, .divider::after { 
             content: ""; 
             height: 1px; 
-            width: 50px; 
+            width: 40px; 
             background-color: white; 
             margin: 0 15px; 
+            opacity: 0.7;
         }
 
         .anillo { 
-            font-size: 1.5rem; 
+            font-size: 1.3rem; 
         }
 
-        /* Fecha aumentada un 20% */
         .fecha { 
             font-size: 1.56rem; 
             font-weight: 300; 
@@ -113,22 +117,26 @@
             letter-spacing: 1px; 
         }
 
-        /* Lugar bajado de posición */
         .lugar { 
-            font-size: 1.3rem; 
+            font-size: 1.2rem; 
             font-weight: 300; 
             margin-top: 15px; 
             letter-spacing: 1px; 
+            opacity: 0.9;
         }
 
-        /* AJUSTE PARA MÓVILES (Fundamental para que no se corte) */
+        /* Ajuste móvil para mantener el aire */
         @media (max-width: 600px) {
             .hero h1 { 
-                font-size: 4.5rem; 
-                line-height: 0.9;
+                font-size: 5.8rem; 
+                margin-top: 20px;
+                line-height: 0.8;
             }
-            .fecha {
-                font-size: 1.3rem;
+            .hero h2 {
+                margin-bottom: 25px;
+            }
+            .monograma {
+                margin-bottom: 25px;
             }
         }
 
