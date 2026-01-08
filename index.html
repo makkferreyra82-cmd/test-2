@@ -14,7 +14,7 @@
 
 <meta name="robots" content="noindex, nofollow">
       
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Josefin+Sans:wght@300;400;600&family=Gotu&family=Poppins:wght@300;400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Josefin+Sans:wght@300;400;600&family=Gotu&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
         <style>
 /* =========================================
@@ -27,23 +27,122 @@
             --color-dorado: #f2c94c;         /* Línea del cronograma */
         }
 
-        /* --- ESTILOS GLOBALES --- */
-        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; background-color: #f9f9f9; overflow-x: hidden; } 
+/* --- ESTILOS GLOBALES DE TEXTO --- */
+body {
+    font-family: 'Gotu', serif; /* Fuente por defecto para textos descriptivos */
+    color: #333;
+    line-height: 1.6;
+}
 
-        /* --- ANIMACIONES --- */
-        .reveal { opacity: 0; transition: all 1s cubic-bezier(0.2, 0.6, 0.35, 1); filter: blur(5px); will-change: transform, opacity; } 
-        .reveal-up { transform: translateY(60px); } 
-        .reveal-left { transform: translateX(-60px); } 
-        .reveal-right { transform: translateX(60px); } 
-        .reveal-pop { transform: scale(0.85); } 
-        .reveal.active { opacity: 1; transform: translate(0) scale(1); filter: blur(0); } 
+/* Títulos de Secciones Unificados */
+h2, .section-title {
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 2rem; /* Tamaño unificado */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #444;
+    margin-bottom: 30px;
+    text-align: center;
+}
 
-        /* --- HERO --- */
-        .hero { position: relative; height: 100vh; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('pareja.webp'); background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; text-align: center; color: white; } 
-        .monograma { width: 120px; margin-bottom: 10px; } 
-        .hero h1 { font-size: 3.5rem; font-weight: 600; margin: 0; line-height: 1.1; } 
-        .divider { display: flex; align-items: center; justify-content: center; margin: 20px 0; } 
-        .divider::before, .divider::after { content: ""; height: 1px; width: 50px; background-color: white; margin: 0 15px; } 
+/* Textos Descriptivos (Párrafos) */
+p, .texto-descriptivo {
+    font-family: 'Gotu', serif !important;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+/* --- SECCIÓN CARROUSEL Y FOOTER (Color Oscuro Unificado) --- */
+.carousel-section, footer {
+    background-color: #1a1a1a; /* El tono oscuro del carrusel */
+    color: #ffffff;
+}
+
+footer {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'Gotu', serif;
+}
+
+/* --- BOTONES (Para que combinen) --- */
+.btn-confirmar {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+} 
+
+/* --- SECCIÓN HERO (PORTADA) --- */
+.hero { 
+    position: relative; 
+    height: 100vh; /* Pantalla completa siempre */
+    width: 100%; 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pareja.webp'); 
+    background-size: cover; 
+    background-position: center; /* Centrado para celular */
+    background-repeat: no-repeat;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    color: white; 
+} 
+
+/* --- AJUSTE ARTÍSTICO PARA PC (Enfoque en manos) --- */
+@media (min-width: 1024px) {
+    .hero {
+        /* 65% sube la imagen lo necesario para ver manos/cintura sin llegar a los pies */
+        background-position: center 65%; 
+    }
+}
+
+/* --- ELEMENTOS DENTRO DEL HERO --- */
+.monograma { 
+    width: 120px; 
+    margin-bottom: 15px; 
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
+} 
+
+.hero h1 { 
+    font-family: 'Tangerine', cursive; /* Nueva fuente aplicada */
+    font-size: 6rem; /* Tamaño aumentado para Tangerine */
+    font-weight: 700; 
+    margin: 0; 
+    line-height: 0.8; /* Ajuste para que los nombres estén más cerca */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
+    letter-spacing: 1px;
+} 
+
+.divider { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 25px 0; 
+} 
+
+.divider::before, .divider::after { 
+    content: ""; 
+    height: 1px; 
+    width: 60px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    margin: 0 15px; 
+}
+
+/* --- RESPONSIVE CELULAR --- */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 4.5rem; /* Ajuste para que quepa bien en pantallas móviles */
+    }
+    .monograma {
+        width: 100px;
+    }
+}
 
 /* --- SECCIÓN ESPECIAL --- */
         #especial { 
@@ -161,13 +260,83 @@
         .timer-val { font-size: 45px; font-weight: 600; } 
         .timer-container { display: flex; justify-content: center; gap: 20px; } 
 
-        /* --- ITINERARIO (ORDEN CORREGIDO) --- */
-        .seccion-itinerario { background-color: #fff2e6; padding: 80px 20px; text-align: center; } 
-        .tarjeta-evento { margin-bottom: 60px; display: flex; flex-direction: column; align-items: center; } 
-        .tarjeta-evento h3 { color: var(--color-primario); text-transform: uppercase; margin-bottom: 10px; order: 1; } 
-        .info-logistica { order: 2; font-weight: 600; color: #555; margin-bottom: 15px; } 
-        .foto-lugar { order: 3; width: 100%; max-width: 400px; height: 250px; object-fit: cover; border-radius: 30px; margin-bottom: 20px; } 
-        .btn-ubicacion { order: 4; display: inline-block; padding: 12px 30px; background-color: var(--color-primario); color: white; border-radius: 25px; text-decoration: none; font-weight: bold; } 
+/* --- SECCIÓN ITINERARIO (Lugares & Horarios) --- */
+.seccion-itinerario { 
+    padding: 80px 20px; 
+    text-align: center; 
+    background-color: #ffffff; 
+}
+
+.titulo-itinerario { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; 
+    color: var(--color-primario); /* Título en rosa */
+    margin-bottom: 50px; 
+    text-transform: lowercase; 
+}
+
+.tarjeta-evento { 
+    max-width: 450px; 
+    margin: 0 auto 70px auto; 
+    padding: 0 10px; 
+}
+
+.tarjeta-evento h3 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem; 
+    color: var(--color-primario); /* Subtítulo en rosa */
+    margin-bottom: 5px; 
+}
+
+.descripcion-evento { 
+    font-size: 1rem; 
+    color: #666; 
+    margin-bottom: 15px; 
+    line-height: 1.4; 
+}
+
+.logistica-texto { 
+    font-family: 'Josefin Sans', sans-serif; 
+    font-size: 1.1rem; 
+    margin-bottom: 20px; 
+    color: #333; 
+}
+
+.logistica-texto strong { 
+    font-weight: 700; 
+    color: var(--color-primario); /* Horario en rosa */
+}
+
+.foto-lugar { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 15px; 
+    margin-bottom: 20px;
+    display: block;
+    /* DESACTIVAR CLIC Y AMPLIACIÓN */
+    cursor: default; 
+    pointer-events: none; 
+}
+
+.btn-ubicacion { 
+    display: inline-block; 
+    padding: 10px 30px; 
+    background-color: var(--color-primario); /* BOTÓN ROSA */
+    color: white; 
+    border-radius: 30px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 13px; 
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-ubicacion:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
 
         /* --- VESTIMENTA (ICONOS REDUCIDOS) --- */
         .vestimenta-section { background-color: #f4f0eb; padding: 80px 20px; text-align: center; } 
@@ -366,30 +535,37 @@
 
 /* --- GALERÍA MOSAICO MATEMÁTICO --- */
 .seccion-instantes { 
-    background-color: var(--color-oscuro); 
+    background-color: #ffffff; /* Ajustado para que no sea oscuro si prefieres el fondo blanco */
     padding: 80px 20px; 
     text-align: center; 
 } 
 
+.instantes-titulo { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; 
+    color: var(--color-primario); 
+    margin-bottom: 10px; 
+}
+
+.instantes-texto {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
 .galeria-mosaico { 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en computadoras */
-    grid-auto-rows: 200px; /* Altura de cada bloque horizontal */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-auto-rows: 200px; 
     gap: 15px;
     max-width: 1100px; 
     margin: 0 auto;
-    grid-auto-flow: dense; /* Rellena huecos automáticamente */
+    grid-auto-flow: dense; 
 } 
 
-/* FOTO VERTICAL: Ocupa 2 bloques de altura (total 400px + gap) */
-.foto-v { 
-    grid-row: span 2; 
-}
-
-/* FOTO HORIZONTAL: Ocupa 1 bloque de altura (total 200px) */
-.foto-h { 
-    grid-row: span 1; 
-}
+.foto-v { grid-row: span 2; }
+.foto-h { grid-row: span 1; }
 
 .foto-galeria { 
     width: 100%; 
@@ -400,19 +576,29 @@
     transition: transform 0.3s ease;
 }
 
-.foto-galeria:hover { transform: scale(1.03); }
+/* --- SOLUCIÓN PARA QUE SE AMPLÍEN Y TAPEN TODO --- */
+.foto-galeria.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: contain !important;
+    background-color: rgba(0, 0, 0, 0.98) !important;
+    z-index: 1000000 !important; /* Por encima de los títulos rosas */
+    margin: 0 !important;
+    padding: 20px !important;
+    border-radius: 0 !important;
+    transform: translate(0, 0) !important; /* ELIMINA EL DESPLAZAMIENTO A LA DERECHA */
+    cursor: zoom-out;
+}
 
-/* Ajuste para móviles (FILAS DE 3) */
+/* Ajuste para móviles */
 @media (max-width: 600px) {
     .galeria-mosaico {
-        grid-template-columns: repeat(3, 1fr); /* Cambiado de 2 a 3 */
-        grid-auto-rows: 100px; /* Altura más pequeña para que no se vean gigantes */
-        gap: 8px; /* Espacio más fino entre fotos */
-    }
-
-    /* Ajustamos las fotos verticales para que no ocupen tanto espacio en filas de 3 */
-    .foto-v { 
-        grid-row: span 2; 
+        grid-template-columns: repeat(3, 1fr); 
+        grid-auto-rows: 100px; 
+        gap: 8px; 
     }
 }
 
@@ -477,27 +663,28 @@
     filter: brightness(1.1);
 }
 
-/* --- FOOTER WEDDING (DISEÑO FINAL) --- */
+/* --- FOOTER WEDDING (UNIFICADO Y OSCURO) --- */
 .footer-wedding {
     padding: 80px 20px;
-    background-color: #fdfcfb; 
+ background-color: #3b2c35 !important; /* Nuevo color oscuro */
     text-align: center;
-    border-top: 1px solid #f0e6d6;
+    color: white !important;
 }
 
 .footer-names {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: var(--color-secundario);
+    font-family: 'Tangerine', cursive !important;
+    font-size: 5.5rem !important; /* Tamaño grande para que luzca */
+    color: white !important;
     margin-bottom: 10px;
+    text-transform: none !important;
 }
 
 .footer-date {
-    font-family: 'Josefin Sans', sans-serif;
-    letter-spacing: 3px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    font-size: 1rem;
-    color: #888;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 25px;
 }
 
@@ -505,21 +692,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Espacio entre las líneas y el corazón */
+    gap: 15px;
     margin: 0 auto 25px;
-    max-width: 250px; /* Ancho total del conjunto */
+    max-width: 250px;
 }
 
 .footer-divider-container .line {
     flex: 1;
     height: 1px;
-    background-color: var(--color-secundario);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .footer-heart {
-    color: var(--color-secundario);
+    color: #e63946;
     font-size: 0.8rem;
-    /* Animación opcional de latido */
     animation: heartbeat 1.5s infinite;
 }
 
@@ -530,15 +716,15 @@
 }
 
 .footer-thanks {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Gotu', serif !important; /* Fuente descriptiva */
     font-size: 1.1rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     max-width: 500px;
     margin: 0 auto 35px;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
-/* TUS BOTONES DE WHATSAPP */
+/* BOTONES DE WHATSAPP OSCUROS */
 .ws-container {
     display: flex;
     justify-content: center;
@@ -552,26 +738,25 @@
     align-items: center;
     gap: 10px;
     padding: 12px 25px;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50px;
-    color: #444;
+    color: white;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 400;
     transition: all 0.3s ease;
 }
 
 .ws-btn:hover {
-    border-color: #25d366;
-    color: #25d366;
+    background-color: white;
+    color: #1a1a1a;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .ws-btn i {
-    color: #25d366;
+    color: #25d366; /* Mantenemos el verde solo en el icono */
     font-size: 1.1rem;
 }
 
@@ -580,7 +765,7 @@
     display: block;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 0.9rem;
-    color: #b58d52;
+    color: rgba(255, 255, 255, 0.5);
     letter-spacing: 4px;
     margin-top: 20px;
     font-weight: bold;
@@ -707,6 +892,54 @@ section {
 .show-arrow {
     opacity: 0.8;
 }
+/* --- AJUSTE PARA SECCIONES CON FOTO DE FONDO (TEXTOS BLANCOS) --- */
+
+/* 1. Forzar blanco en el Hero (Sección 1) */
+.hero, 
+.hero .hero-subtitulo, 
+.hero h1, 
+.hero .fecha-grande,
+.hero #scroll-indicator p {
+    color: #ffffff !important;
+}
+
+/* 2. Forzar blanco en la Sección Especial (Tu Sección 2) */
+#especial, 
+#especial h2, 
+#especial p, 
+#especial .titulo-boda,
+#especial .subtitulo-final,
+#especial .estrellas {
+    color: #ffffff !important;
+}
+
+/* 3. Asegurar que las líneas y el botón de la sección especial se vean bien */
+#especial .btn-celebracion {
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    background: transparent;
+}
+
+#especial .btn-celebracion:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* 4. Líneas divisorias blancas para Hero y Especial */
+.hero .divider::before, 
+.hero .divider::after,
+#especial .divider-flower::before,
+#especial .divider-flower::after {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* --- TEXTO OSCURO PARA EL RESTO --- */
+/* Esto mantiene el texto oscuro en Regalos, Ubicación, etc. */
+section:not(.hero):not(#especial) p,
+section:not(.hero):not(#especial) h2 {
+    color: #333333;
+}
+
         </style>         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotu&display=swap">
@@ -725,16 +958,14 @@ section {
     </div>
 </nav>
       <section class="hero"> 
-    <div class="hero-content reveal reveal-pop"> 
-        <img src="monograma01.webp" alt="Logo" class="monograma"> 
-        <h2>Nos casamos</h2> 
-        <h1>Lesly &<br>Isidro</h1> 
-        <div class="divider">
-            <span class="anillo">💍</span>
-        </div>                 
-        <p class="fecha">07 de marzo, 2026</p> 
-        <p class="lugar">Villa la Moraleja, Dgo.</p> 
-    </div>
+   <div class="hero-content reveal"> 
+    <img src="monograma01.webp" alt="Logo" class="monograma"> 
+    <p class="hero-subtitulo">Nos casamos</p> 
+    <h1>Lesly &<br>Isidro</h1> 
+    <div class="divider">💍</div>                 
+    <p class="hero-subtitulo fecha-grande">07 . 03 . 2026</p> 
+    <p class="hero-subtitulo" style="font-size: 0.8rem; margin-top: 10px;">Villa la Moraleja, Dgo.</p> 
+</div>
 
     <div id="scroll-indicator" class="scroll-arrow">
         <p>Desliza</p>
@@ -789,27 +1020,33 @@ section {
                 </div>                 
             </div>             
         </section>         
-        <section id="seccion-itinerario" class="seccion-itinerario">
-            <h2 class="titulo-principal reveal reveal-up">Nuestra Boda</h2> 
-            <article class="tarjeta-evento reveal reveal-up"> 
-                <h3>Ceremonia Religiosa</h3> 
-                <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p> 
-                <time class="info-logistica">17:00 hrs | Parroquia del Espíritu Santo</time>                 
-                <img src="iglesia.webp" class="foto-lugar" alt="Vista de la Parroquia Espíritu Santo"> <a href="https://maps.app.goo.gl/rDadLCkw5FeUiaug8" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-            </article>             
-            <article class="tarjeta-evento reveal reveal-up"> 
-                <h3>Ceremonia Civil</h3> 
-                <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p> 
-                <time class="info-logistica">18:30 hrs | Villa la Moraleja</time>                 
-                <img src="civil.webp" class="foto-lugar" alt="Jardines para ceremonia civil"> <a href="https://maps.app.goo.gl/c6W767okKM4qzYeo6" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-            </article>             
-            <article class="tarjeta-evento reveal reveal-up"> 
-                <h3>Recepción</h3> 
-                <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p> 
-                <time class="info-logistica">19:00 hrs | Villa la Moraleja</time>                 
-                <img src="recepcion.webp" class="foto-lugar" alt="Salón de recepción"> <a href="https://maps.app.goo.gl/c6W767okKM4qzYeo6" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-            </article>             
-        </section>         
+    <section id="seccion-itinerario" class="seccion-itinerario">
+    <h2 class="titulo-itinerario reveal reveal-up">LUGARES & HORARIOS</h2> 
+    
+    <article class="tarjeta-evento reveal reveal-up"> 
+        <h3>Ceremonia Religiosa</h3> 
+        <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p> 
+        <p class="logistica-texto"><strong>17:00 hrs</strong> | Parroquia del Espíritu Santo</p>                 
+        <img src="iglesia.webp" class="foto-lugar" alt="Parroquia Espíritu Santo"> 
+        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-1" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+    </article>             
+
+    <article class="tarjeta-evento reveal reveal-up"> 
+        <h3>Ceremonia Civil</h3> 
+        <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p> 
+        <p class="logistica-texto"><strong>18:30 hrs</strong> | Villa la Moraleja</p>                 
+        <img src="civil.webp" class="foto-lugar" alt="Ceremonia Civil"> 
+        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+    </article>             
+
+    <article class="tarjeta-evento reveal reveal-up"> 
+        <h3>Recepción</h3> 
+        <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p> 
+        <p class="logistica-texto"><strong>19:00 hrs</strong> | Villa la Moraleja</p>                 
+        <img src="recepcion.webp" class="foto-lugar" alt="Recepción"> 
+        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+    </article>             
+</section>             
         <section class="vestimenta-section"> 
             <h2 class="vestimenta-titulo reveal reveal-up">Código de Vestimenta</h2> 
             <p class="vestimenta-subtitulo reveal reveal-up">Formal</p> 
@@ -949,31 +1186,57 @@ section {
                 </div>                 
             </div>             
         </section>         
-        <footer class="footer-wedding"> 
-            <h2 class="footer-names reveal reveal-up">Lesly & Isidro</h2> 
-            <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>  
-        <div class="footer-divider-container reveal reveal-up">
-    <div class="line"></div>
-    <i class="fa-solid fa-heart footer-heart"></i>
-    <div class="line"></div>
-</div>
-            <p class="footer-thanks reveal reveal-up"> 
-            Con todo nuestro amor, gracias por ser parte de nuestra historia.  </p> 
-            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/543834683410" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
-            </div>             <span class="footer-hashtag">#LESLY&ISIDRO2026</span> 
-        </footer>         
-        <script>
+<footer class="footer-wedding"> 
+    <h2 class="footer-names reveal reveal-up">Lesly & Isidro</h2> 
+    
+    <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>  
+
+    <div class="footer-divider-container reveal reveal-up">
+        <div class="line"></div>
+        <i class="fa-solid fa-heart footer-heart"></i>
+        <div class="line"></div>
+    </div>
+
+    <p class="footer-thanks reveal reveal-up"> 
+        Con todo nuestro amor, gracias por ser parte de nuestra historia. 
+    </p> 
+
+    <div class="ws-container reveal reveal-pop"> 
+        <a href="https://wa.me/543834683410" class="ws-btn" target="_blank"> 
+            <i class="fab fa-whatsapp"></i> WhatsApp Lesly
+        </a> 
+        <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank"> 
+            <i class="fab fa-whatsapp"></i> WhatsApp Isidro
+        </a> 
+    </div>
+
+    <span class="footer-hashtag reveal reveal-up">#LESLY&ISIDRO2026</span> 
+</footer>         
+<script>
+    // 1. FUNCIÓN UNIVERSAL PARA AMPLIAR FOTOS
+    window.ampliarFoto = function(img) {
+        if (img.classList.contains('fullscreen')) {
+            img.classList.remove('fullscreen');
+            document.body.style.overflow = 'auto';
+        } else {
+            document.querySelectorAll('.fullscreen').forEach(el => el.classList.remove('fullscreen'));
+            img.classList.add('fullscreen');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
     (function () {
-        // --- SCRIPT ANIMACIONES ---
+        // --- SCRIPT ANIMACIONES (CORREGIDO: Carga rápida sin huecos blancos) ---
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
+            threshold: 0.01, // Se activa en cuanto asoma un 1% del elemento
+            rootMargin: "0px 0px 0px 0px" // Sin margen negativo para que no tarde en aparecer
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("active");
+                    observer.unobserve(entry.target); // Deja de observar una vez activado
                 }
             });
         }, observerOptions);
@@ -1002,15 +1265,20 @@ section {
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // --- SCRIPT CARRUSEL ---
+        // --- SCRIPT CARRUSEL (INFINITO + TÁCTIL) ---
         const slide = document.getElementById('slide');
         const images = document.querySelectorAll('#slide img');
         const dotsContainer = document.getElementById('dots-container');
+
         if(slide && images.length > 0) {
             let counter = 0;
             const totalImages = images.length;
             let timerCarousel;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
             function initDots() {
+                dotsContainer.innerHTML = ""; 
                 for (let i = 0; i < totalImages; i++) {
                     const dot = document.createElement('span');
                     dot.classList.add('dot');
@@ -1019,28 +1287,60 @@ section {
                     dotsContainer.appendChild(dot);
                 }
             }
+
             function updateDisplay() {
+                slide.style.transition = "transform 0.5s ease-in-out";
                 slide.style.transform = `translateX(${-counter * 100}%)`;
                 const dots = document.querySelectorAll('.dot');
                 dots.forEach((dot, index) => dot.classList.toggle('active', index === counter));
             }
-            window.moveSlide = function(step) { counter = (counter + step + totalImages) % totalImages; updateDisplay(); resetTimer(); }
-            function goToSlide(index) { counter = index; updateDisplay(); resetTimer(); }
-            function startTimer() { timerCarousel = setInterval(() => { counter = (counter + 1) % totalImages; updateDisplay(); }, 4000); }
-            function resetTimer() { clearInterval(timerCarousel); startTimer(); }
+
+            window.moveSlide = function(step) { 
+                counter += step;
+                // Lógica de ciclo infinito sin rebote
+                if (counter >= totalImages) counter = 0;
+                else if (counter < 0) counter = totalImages - 1;
+                
+                updateDisplay(); 
+                resetTimer(); 
+            }
+
+            function goToSlide(index) { 
+                counter = index; 
+                updateDisplay(); 
+                resetTimer(); 
+            }
+
+            function startTimer() { 
+                timerCarousel = setInterval(() => { 
+                    moveSlide(1);
+                }, 4000); 
+            }
+
+            function resetTimer() { 
+                clearInterval(timerCarousel); 
+                startTimer(); 
+            }
+
+            // Lógica Swipe
+            slide.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            slide.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const swipeThreshold = 50;
+                if (touchStartX - touchEndX > swipeThreshold) moveSlide(1);
+                if (touchEndX - touchStartX > swipeThreshold) moveSlide(-1);
+            }, {passive: true});
+
             initDots();
             startTimer();
-        }
-
-        window.ampliarFoto = function(img) {
-            img.classList.toggle('fullscreen');
-            document.body.style.overflow = img.classList.contains('fullscreen') ? 'hidden' : 'auto';
         }
 
         // --- SCRIPT PARA LINK DINÁMICO (CUPOS) ---
         const urlParams = new URLSearchParams(window.location.search);
         const cupo = urlParams.get('cupo');
-
         if (cupo) {
             const botones = document.querySelectorAll('.btn-confirmar');
             botones.forEach(boton => {
@@ -1050,24 +1350,20 @@ section {
         }
     })();
 
-// --- SCRIPT PARA FLECHA INDICADORA DE DESPLAZAMIENTO (SCROLL) ---
-        const arrow = document.getElementById('scroll-indicator');
+    // --- SCRIPT PARA FLECHA INDICADORA ---
+    const arrow = document.getElementById('scroll-indicator');
+    setTimeout(() => {
+        if (window.scrollY < 100 && arrow) {
+            arrow.classList.add('show-arrow');
+        }
+    }, 3000); 
 
-        // Aparece tras 3 segundos si el usuario no ha bajado
-        setTimeout(() => {
-            if (window.scrollY < 100 && arrow) {
-                arrow.classList.add('show-arrow');
-            }
-        }, 3000); 
-
-        // Desaparece en cuanto el usuario comienza a navegar
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50 && arrow) {
-                arrow.style.opacity = '0';
-                // Opcional: eliminarla del DOM tras ocultarse para optimizar
-                setTimeout(() => arrow.remove(), 1000);
-            }
-        });
-    </script>         
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50 && arrow) {
+            arrow.style.opacity = '0';
+            setTimeout(() => { if(arrow) arrow.remove(); }, 1000);
+        }
+    });
+    </script>        
     </body>     
 </html>
