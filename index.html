@@ -164,7 +164,7 @@
             margin: 0 auto; 
             line-height: 1.3; 
             font-family: 'Josefin Sans', sans-serif;
-            font-size: 34px; /* Ajustado a 34px */
+            font-size: 24px; /* Ajustado a 34px */
             font-weight: 300; 
         }
 
@@ -354,26 +354,166 @@
             .timer-val { font-size: 40px; }
             .label { font-size: 9px; }
         }
-        /* --- SECCIÓN 4: ITINERARIO --- */
-        .seccion-itinerario { background-color: #fff2e6; padding: 80px 20px; text-align: center; font-family: 'Playfair Display', serif; }
-        .titulo-principal { font-size: 2.5rem; color: #823c2e; margin-bottom: 40px; font-style: italic; }
-        .tarjeta-evento { max-width: 500px; margin: 0 auto 60px auto; padding: 0 15px; }
-        .tarjeta-evento h3 { color: #bc778b; text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem; margin-bottom: 10px; }
-        .descripcion-evento { font-family: 'Montserrat', sans-serif; font-size: 1rem; line-height: 1.6; color: #555; margin-bottom: 15px; }
-        .info-logistica { display: block; font-weight: bold; color: #333; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; }
-        .foto-lugar { width: 100%; max-width: 400px; height: 250px; object-fit: cover; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: block; margin: 0 auto 20px auto; }
-        .btn-ubicacion { display: inline-block; padding: 12px 30px; background-color: #bc778b; color: #ffffff; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Montserrat', sans-serif; transition: background-color 0.3s ease; }
+        /* --- SECCIÓN 4: ITINERARIO (Josefin + Gotu) --- */
+        .seccion-itinerario { 
+            background-color: #fff2e6; 
+            padding: 80px 20px; 
+            text-align: center; 
+        }
 
+        /* Título Principal: Josefin Sans 1.7rem */
+        .titulo-principal { 
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 2.7rem; 
+            color: #823c2e; 
+            margin-bottom: 40px; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tarjeta-evento { 
+            max-width: 500px; 
+            margin: 0 auto 60px auto; 
+            padding: 0 15px; 
+        }
+
+        /* Subtítulos de eventos: Josefin Sans */
+        .tarjeta-evento h3 { 
+            font-family: 'Josefin Sans', sans-serif;
+            color: #bc778b; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 1.2rem; 
+            margin-bottom: 10px; 
+            font-weight: 600;
+        }
+
+        /* Descripción del evento: Gotu */
+        .descripcion-evento { 
+            font-family: 'Gotu', sans-serif; 
+            font-size: 1rem; 
+            line-height: 1.6; 
+            color: #555; 
+            margin-bottom: 15px; 
+        }
+
+        /* Información logística (Hora/Lugar): Gotu */
+        .info-logistica { 
+            display: block; 
+            font-weight: bold; 
+            color: #333; 
+            margin-bottom: 20px; 
+            font-family: 'Gotu', sans-serif; 
+            font-size: 0.95rem;
+        }
+
+        .foto-lugar { 
+            width: 100%; 
+            max-width: 400px; 
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 30px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            display: block; 
+            margin: 0 auto 20px auto; 
+        }
+
+        /* Botón: También con Gotu para mantener la armonía */
+        .btn-ubicacion { 
+            display: inline-block; 
+            padding: 12px 30px; 
+            background-color: #bc778b; 
+            color: #ffffff; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-family: 'Gotu', sans-serif; 
+            transition: background-color 0.3s ease; 
+        }
         /* --- SECCIÓN VESTIMENTA --- */
-        .vestimenta-section { background-color: #f4f0eb; padding: 80px 20px; text-align: center; color: #333333; font-family: 'Gotu', sans-serif; }
-        .vestimenta-titulo { font-family: 'Josefin Sans', sans-serif; font-size: 38px; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 5px; color: #823c2e; margin-top: 0; }
-        .vestimenta-subtitulo { font-family: 'Josefin Sans', sans-serif; font-size: 24px; letter-spacing: 2px; margin-bottom: 40px; color: #bc778b; }
-        .iconos-container { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; }
-        .icono-img { width: 110px; height: auto; display: block; }
-        .texto-mujeres { font-size: 18px; margin-bottom: 25px; letter-spacing: 1px; color: #333333; }
-        .paleta-container { max-width: 320px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-        .fila-colores { display: flex; justify-content: center; gap: 12px; }
-        .circulo { width: 55px; height: 55px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 8px rgba(0,0,0,0.05); flex-shrink: 0; }
+        .vestimenta-section { 
+            background-color: #f4f0eb; 
+            padding: 80px 20px; 
+            text-align: center; 
+            color: #333333; 
+            font-family: 'Gotu', sans-serif; 
+        }
+
+        .vestimenta-titulo { 
+            font-family: 'Josefin Sans', sans-serif; 
+            font-size: 38px; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            margin-bottom: 5px; 
+            color: #823c2e; 
+            margin-top: 0; 
+        }
+
+        /* Subtítulo "FORMAL" aumentado */
+        .vestimenta-subtitulo { 
+            font-family: 'Josefin Sans', sans-serif; 
+            font-size: 19px; /* Aumentado de 24px a 32px */
+            font-weight: 600; /* Un poco más de grosor para que resalte */
+            letter-spacing: 3px; 
+            margin-bottom: 40px; 
+            color: #bc778b; 
+            text-transform: uppercase;
+        }
+
+        .iconos-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            margin-bottom: 30px; 
+        }
+
+        .icono-img { 
+            width: 110px; 
+            height: auto; 
+            display: block; 
+        }
+
+        .texto-mujeres { 
+            font-size: 18px; 
+            margin-bottom: 25px; 
+            letter-spacing: 1px; 
+            color: #333333; 
+            font-family: 'Gotu', sans-serif; /* Aseguramos Gotu aquí */
+        }
+
+        .paleta-container { 
+            max-width: 320px; 
+            margin: 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+
+        .fila-colores { 
+            display: flex; 
+            justify-content: center; 
+            gap: 12px; 
+        }
+
+        .circulo { 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            border: 1px solid rgba(0,0,0,0.1); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+            flex-shrink: 0; 
+        }
+
+        /* Ajuste para móviles */
+        @media (max-width: 600px) {
+            .vestimenta-titulo { font-size: 28px; }
+            .vestimenta-subtitulo { font-size: 26px; }
+            .circulo { width: 45px; height: 45px; }
+        }
 
         /* --- SECCIÓN REGALOS --- */
         .seccion-regalos { background-color: #ffffff; padding: 80px 20px; text-align: center; font-family: 'Gotu', sans-serif; }
