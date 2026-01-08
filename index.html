@@ -38,7 +38,7 @@
         .reveal-pop { transform: scale(0.85); } 
         .reveal.active { opacity: 1; transform: translate(0) scale(1); filter: blur(0); } 
 
-     /* --- HERO --- */
+/* --- HERO --- */
 .hero { 
     position: relative; 
     height: 100vh; 
@@ -52,6 +52,52 @@
     text-align: center; 
     color: white; 
 } 
+
+.monograma { 
+    width: 120px; 
+    margin-bottom: 10px; 
+} 
+
+/* Estilo actualizado para los nombres */
+.hero h1 { 
+    font-family: 'Tangerine', cursive; 
+    font-size: 6rem; /* Aumentado porque Tangerine es una fuente pequeña por naturaleza */
+    font-weight: 700; 
+    margin: 10px 0; 
+    line-height: 0.8; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Mejora la lectura sobre la foto */
+} 
+
+/* Estilo para el texto "Nos casamos" */
+.hero h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.divider { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 20px 0; 
+} 
+
+.divider::before, .divider::after { 
+    content: ""; 
+    height: 1px; 
+    width: 50px; 
+    background-color: white; 
+    margin: 0 15px; 
+}
+
+.hero .fecha, .hero .lugar {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin: 5px 0;
+}
 
 .monograma { 
     width: 120px; 
