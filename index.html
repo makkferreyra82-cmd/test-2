@@ -4,985 +4,70 @@
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>¡Te invitamos a nuestra boda! 💍</title>
-<meta property="og:title" content="¡Te invitamos a nuestra boda! 💍">
-<meta property="og:description" content="Acompáñanos a celebrar nuestro gran día. Lesly & Isidro">
-<meta property="og:image" content="https://github.com/makkferreyra82-cmd/test-2/blob/main/invitacion.webp?raw=true">
-<meta property="og:image:type" content="image/webp">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:type" content="website">
-
-<meta name="robots" content="noindex, nofollow">
-      
+        <meta property="og:title" content="¡Te invitamos a nuestra boda! 💍">
+        <meta property="og:description" content="Acompáñanos a celebrar nuestro gran día. Lesly & Isidro">
+        <meta property="og:image" content="https://github.com/makkferreyra82-cmd/test-2/blob/main/invitacion.webp?raw=true">
+        <meta property="og:image:type" content="image/webp">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:type" content="website">
+        <meta name="robots" content="noindex, nofollow">
         <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Josefin+Sans:wght@300;400;600&family=Gotu&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-        <style>
-/* =========================================
+        <style>/* =========================================
            PANEL DE CONTROL DE COLORES
-           ========================================= */
-        :root {
-            --color-primario: #bc778b;       /* Rosa de botones y detalles */
-            --color-secundario: #823c2e;     /* Tinto de títulos y contador */
-            --color-oscuro: #3b2c35;         /* Fondos de carrusel y footer */
-            --color-dorado: #f2c94c;         /* Línea del cronograma */
-        }
-
-/* --- ESTILOS GLOBALES DE TEXTO --- */
-body {
-    font-family: 'Gotu', serif; /* Fuente por defecto para textos descriptivos */
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Títulos de Secciones Unificados */
-h2, .section-title {
-    font-family: 'Josefin Sans', sans-serif !important;
-    font-size: 2rem; /* Tamaño unificado */
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #444;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* Textos Descriptivos (Párrafos) */
-p, .texto-descriptivo {
-    font-family: 'Gotu', serif !important;
-    font-size: 1.05rem;
-    color: #555;
-}
-
-/* --- SECCIÓN CARROUSEL Y FOOTER (Color Oscuro Unificado) --- */
-.carousel-section, footer {
-    background-color: #1a1a1a; /* El tono oscuro del carrusel */
-    color: #ffffff;
-}
-
-footer {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-family: 'Gotu', serif;
-}
-
-/* --- BOTONES (Para que combinen) --- */
-.btn-confirmar {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-} 
-
-/* --- SECCIÓN HERO (PORTADA) --- */
-.hero { 
-    position: relative; 
-    height: 100vh; /* Pantalla completa siempre */
-    width: 100%; 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pareja.webp'); 
-    background-size: cover; 
-    background-position: center; /* Centrado para celular */
-    background-repeat: no-repeat;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    color: white; 
-} 
-
-/* --- AJUSTE ARTÍSTICO PARA PC (Enfoque en manos) --- */
-@media (min-width: 1024px) {
-    .hero {
-        /* 65% sube la imagen lo necesario para ver manos/cintura sin llegar a los pies */
-        background-position: center 65%; 
-    }
-}
-
-/* --- ELEMENTOS DENTRO DEL HERO --- */
-.monograma { 
-    width: 120px; 
-    margin-bottom: 15px; 
-    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
-} 
-
-.hero h1 { 
-    font-family: 'Tangerine', cursive; /* Nueva fuente aplicada */
-    font-size: 6rem; /* Tamaño aumentado para Tangerine */
-    font-weight: 700; 
-    margin: 0; 
-    line-height: 0.8; /* Ajuste para que los nombres estén más cerca */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
-    letter-spacing: 1px;
-} 
-
-.divider { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin: 25px 0; 
-} 
-
-.divider::before, .divider::after { 
-    content: ""; 
-    height: 1px; 
-    width: 60px; 
-    background-color: rgba(255, 255, 255, 0.8); 
-    margin: 0 15px; 
-}
-
-/* --- RESPONSIVE CELULAR --- */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 4.5rem; /* Ajuste para que quepa bien en pantallas móviles */
-    }
-    .monograma {
-        width: 100px;
-    }
-}
-
-/* --- SECCIÓN ESPECIAL --- */
-        #especial { 
-            position: relative; 
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('fondoseccion02.webp') no-repeat center center; 
-            background-size: cover; 
-            color: #ffffff; 
-            padding: 80px 20px 60px 20px; 
-            text-align: center; 
-            min-height: 90vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-        } 
-
-        .titulo-boda { 
-            font-size: 2.8rem; 
-            margin-bottom: 60px; 
-            font-family: 'Playfair Display', serif; 
-        } 
-
-        .estrellas {
-            font-size: 28px; /* <--- Estrellas reducidas como pediste */
-            margin-bottom: 2px; /* <--- Casi pegadas a la frase */
-            color: #ffffff;
-            letter-spacing: 4px;
-        }
-
-        .frase-especial {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-top: 0; 
-            margin-bottom: 110px; /* <--- ESTO ALEJA MUCHO EL BOTÓN HACIA ABAJO */
-            line-height: 1.2;
-            max-width: 280px;
-        }
-
-        .btn-celebracion { 
-            display: inline-block; 
-            background-color: var(--color-primario); 
-            color: white; 
-            padding: 12px 25px; 
-            border-radius: 40px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 13px; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s; 
-            border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn-celebracion:hover {
-            transform: scale(1.05);
-        }
-/* --- CARRUSEL CORREGIDO --- */
-        .carousel-section { padding: 50px 0; background-color: var(--color-oscuro); } 
-        
-        .carousel-container { 
-            position: relative; 
-            width: 90%; 
-            max-width: 800px; 
-            margin: 0 auto; 
-            overflow: hidden; 
-            border-radius: 12px; 
-        } 
-        
-        .carousel-slide { display: flex; transition: transform 0.6s ease; } 
-        .carousel-slide img { width: 100%; height: 500px; object-fit: cover; flex-shrink: 0; } 
-
-        /* Estilos de las flechas */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.4); /* Fondo oscurito para que se vean */
-            color: white;
-            border: none;
-            padding: 15px;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 50%; /* Flechas circulares */
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .carousel-btn:hover { background: var(--color-primario); }
-
-        .prev { left: 15px; } /* A la izquierda sobre la foto */
-        .next { right: 15px; } /* A la derecha sobre la foto */
-
-        /* Puntos de abajo */
-        .carousel-dots { text-align: center; margin-top: 15px; }
-        .dot { 
-            display: inline-block; 
-            width: 10px; 
-            height: 10px; 
-            margin: 0 5px; 
-            background-color: #666; 
-            border-radius: 50%; 
-            cursor: pointer; 
-        }
-        .dot.active { background-color: var(--color-primario); transform: scale(1.3); }
-
-        /* --- CONTADOR --- */
-        #contador { background-color: var(--color-secundario); padding: 60px 20px; color: white; text-align: center; } 
-        .timer-val { font-size: 45px; font-weight: 600; } 
-        .timer-container { display: flex; justify-content: center; gap: 20px; } 
-
-/* --- SECCIÓN ITINERARIO (Lugares & Horarios) --- */
-.seccion-itinerario { 
-    padding: 80px 20px; 
-    text-align: center; 
-    background-color: #ffffff; 
-}
-
-.titulo-itinerario { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 2.5rem; 
-    color: var(--color-primario); /* Título en rosa */
-    margin-bottom: 50px; 
-    text-transform: lowercase; 
-}
-
-.tarjeta-evento { 
-    max-width: 450px; 
-    margin: 0 auto 70px auto; 
-    padding: 0 10px; 
-}
-
-.tarjeta-evento h3 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.8rem; 
-    color: var(--color-primario); /* Subtítulo en rosa */
-    margin-bottom: 5px; 
-}
-
-.descripcion-evento { 
-    font-size: 1rem; 
-    color: #666; 
-    margin-bottom: 15px; 
-    line-height: 1.4; 
-}
-
-.logistica-texto { 
-    font-family: 'Josefin Sans', sans-serif; 
-    font-size: 1.1rem; 
-    margin-bottom: 20px; 
-    color: #333; 
-}
-
-.logistica-texto strong { 
-    font-weight: 700; 
-    color: var(--color-primario); /* Horario en rosa */
-}
-
-.foto-lugar { 
-    width: 100%; 
-    height: 220px; 
-    object-fit: cover; 
-    border-radius: 15px; 
-    margin-bottom: 20px;
-    display: block;
-    /* DESACTIVAR CLIC Y AMPLIACIÓN */
-    cursor: default; 
-    pointer-events: none; 
-}
-
-.btn-ubicacion { 
-    display: inline-block; 
-    padding: 10px 30px; 
-    background-color: var(--color-primario); /* BOTÓN ROSA */
-    color: white; 
-    border-radius: 30px; 
-    text-decoration: none; 
-    font-weight: 600; 
-    font-size: 13px; 
-    text-transform: uppercase;
-    transition: 0.3s;
-    border: none;
-}
-
-.btn-ubicacion:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
-
-        /* --- VESTIMENTA (ICONOS REDUCIDOS) --- */
-        .vestimenta-section { background-color: #f4f0eb; padding: 80px 20px; text-align: center; } 
-        .vestimenta-titulo { font-family: 'Josefin Sans', sans-serif; font-size: 38px; color: var(--color-secundario); } 
-
-        /* Esta es la regla que debes añadir o cambiar */
-        .icono-img { 
-         width: 160px;       /* Tamaño pequeño y elegante */
-         height: auto; 
-         margin: 10px 20px; /* Espacio entre ellos */
-         opacity: 0.8;      /* Un toque sutil */
-}
-
-.fila-colores { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; } 
-.circulo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); } 
-
-/* --- SECCIÓN REGALOS (CREADA DESDE CERO) --- */
-.seccion-regalos { 
-    background-color: #fff2e6; /* Color naranja suave/crema */
-    padding: 80px 20px; 
-    text-align: center; /* ESTO CENTRA TODO EL TEXTO */
-} 
-
-.regalos-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.regalos-titulo { 
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--color-secundario);
-    margin-bottom: 20px;
-}
-
-.regalos-texto { 
-    font-family: 'Gotu', sans-serif; /* Usando la fuente que ya tienes para elegancia */
-    color: #555;
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-.regalos-subtitulo {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.8rem;
-    color: var(--color-primario);
-    margin-top: 10px;
-}
-
-.imagen-gift { 
-    width: 200px; /* El tamaño que prefieras */
-    height: auto;
-    margin: 20px auto;
-    display: block;
-    border-radius: 30px; /* Esto le da las esquinas redondeadas igual que a las otras fotos */
-    object-fit: cover;
-}
-
-/* --- CRONOGRAMA (DISEÑO PREMIUM CON ICONOS DE COLOR) --- */
-.seccion-cronograma { 
-    background-color: #fffaf5; 
-    padding: 80px 20px; 
-    text-align: center;
-} 
-
-.header-cronograma h2 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 3rem; 
-    color: var(--color-secundario); 
-    margin-bottom: 10px; 
-    font-style: italic;
-} 
-
-.header-cronograma p {
-    font-family: 'Montserrat', sans-serif;
-    color: #666;
-    margin-bottom: 50px;
-    font-size: 1.1rem;
-}
-
-.timeline-container { 
-    position: relative; 
-    max-width: 900px; 
-    margin: 0 auto; 
-    padding: 20px 0; 
-} 
-
-/* Línea central dorada */
-.timeline-container::after { 
-    content: ''; 
-    position: absolute; 
-    width: 2px; 
-    background-color: var(--color-dorado); 
-    left: 50%; 
-    top: 0; 
-    bottom: 0; 
-    transform: translateX(-50%); 
-} 
-
-.timeline-item { 
-    position: relative; 
-    width: 50%; 
-    padding: 15px 40px; 
-    box-sizing: border-box; 
-    display: flex; 
-} 
-
-/* Bolita en la línea del tiempo */
-.timeline-item::after { 
-    content: ''; 
-    position: absolute; 
-    width: 14px; 
-    height: 14px; 
-    background-color: var(--color-dorado); 
-    border: 2px solid white; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    border-radius: 50%; 
-    z-index: 5; 
-} 
-
-.item-izq { left: 0; justify-content: flex-end; } 
-.item-izq::after { right: -8px; } 
-
-.item-der { left: 50%; justify-content: flex-start; } 
-.item-der::after { left: -8px; } 
-
-/* TARJETA DEL EVENTO */
-.cronograma-card {
-    background: white;
-    padding: 15px 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    max-width: 300px;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.cronograma-card:hover {
-    transform: translateY(-5px);
-}
-
-/* --- ESTILO DE ICONOS CIRCULARES CON COLOR --- */
-.icono-circulo {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%; /* Círculo perfecto */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* Colores de fondo recuperados */
-.bg-pink { background-color: #ffebee !important; color: var(--color-primario) !important; }
-.bg-orange { background-color: #fff3e0 !important; color: #fb8c00 !important; }
-.bg-purple { background-color: #f3e5f5 !important; color: #8e24aa !important; }
-.bg-blue { background-color: #e3f2fd !important; color: #1e88e5 !important; }
-.bg-green { background-color: #e8f5e9 !important; color: #43a047 !important; }
-
-.info-texto h3 { 
-    margin: 0; 
-    font-size: 1.1rem; 
-    color: #333; 
-    font-family: 'Poppins', sans-serif;
-}
-
-.info-texto .hora { 
-    display: block; 
-    font-size: 0.9rem; 
-    color: var(--color-secundario); 
-    font-weight: 600; 
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-/* --- RESPONSIVE (MÓVILES) --- */
-@media (max-width: 600px) { 
-    .timeline-container::after { left: 20px; } 
-    .timeline-item { 
-        width: 100%; 
-        left: 0 !important; 
-        padding-left: 50px !important; 
-        padding-right: 10px !important;
-        justify-content: flex-start !important; 
-    } 
-    .timeline-item::after { left: 13px !important; } 
-    .cronograma-card { max-width: 100%; }
-}
-
-/* --- GALERÍA MOSAICO MATEMÁTICO --- */
-.seccion-instantes { 
-    background-color: #ffffff; /* Ajustado para que no sea oscuro si prefieres el fondo blanco */
-    padding: 80px 20px; 
-    text-align: center; 
-} 
-
-.instantes-titulo { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 2.5rem; 
-    color: var(--color-primario); 
-    margin-bottom: 10px; 
-}
-
-.instantes-texto {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
-    font-style: italic;
-}
-
-.galeria-mosaico { 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-auto-rows: 200px; 
-    gap: 15px;
-    max-width: 1100px; 
-    margin: 0 auto;
-    grid-auto-flow: dense; 
-} 
-
-.foto-v { grid-row: span 2; }
-.foto-h { grid-row: span 1; }
-
-.foto-galeria { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    border-radius: 12px; 
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-/* --- SOLUCIÓN PARA QUE SE AMPLÍEN Y TAPEN TODO --- */
-.foto-galeria.fullscreen {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    object-fit: contain !important;
-    background-color: rgba(0, 0, 0, 0.98) !important;
-    z-index: 1000000 !important; /* Por encima de los títulos rosas */
-    margin: 0 !important;
-    padding: 20px !important;
-    border-radius: 0 !important;
-    transform: translate(0, 0) !important; /* ELIMINA EL DESPLAZAMIENTO A LA DERECHA */
-    cursor: zoom-out;
-}
-
-/* Ajuste para móviles */
-@media (max-width: 600px) {
-    .galeria-mosaico {
-        grid-template-columns: repeat(3, 1fr); 
-        grid-auto-rows: 100px; 
-        gap: 8px; 
-    }
-}
-
-/* --- SECCIÓN RSVP --- */
-.seccion-rsvp {
-    padding: 80px 20px;
-    background-color: #ffffff; /* Fondo blanco */
-    text-align: center;
-}
-
-.rsvp-container {
-    max-width: 600px;
-    margin: 0 auto; /* Centra el contenedor */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.rsvp-titulo {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--color-secundario);
-    margin-bottom: 5px;
-}
-
-.rsvp-subtitulo {
-    font-family: 'Josefin Sans', sans-serif;
-    letter-spacing: 4px;
-    font-size: 1.2rem;
-    color: #b58d52; /* Color dorado/ocre */
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.rsvp-texto {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 35px;
-    line-height: 1.6;
-}
-
-/* El botón con tu clase btn-celebracion */
-.btn-celebracion.btn-confirmar {
-    display: inline-block;
-    background-color: var(--color-secundario); /* O usa #25d366 si quieres verde */
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Josefin Sans', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: none;
-    cursor: pointer;
-}
-
-.btn-celebracion.btn-confirmar:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    filter: brightness(1.1);
-}
-
-/* --- FOOTER WEDDING (UNIFICADO Y OSCURO) --- */
-.footer-wedding {
-    padding: 80px 20px;
- background-color: #3b2c35 !important; /* Nuevo color oscuro */
-    text-align: center;
-    color: white !important;
-}
-
-.footer-names {
-    font-family: 'Tangerine', cursive !important;
-    font-size: 5.5rem !important; /* Tamaño grande para que luzca */
-    color: white !important;
-    margin-bottom: 10px;
-    text-transform: none !important;
-}
-
-.footer-date {
-    font-family: 'Josefin Sans', sans-serif !important;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 25px;
-}
-
-.footer-divider-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin: 0 auto 25px;
-    max-width: 250px;
-}
-
-.footer-divider-container .line {
-    flex: 1;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.footer-heart {
-    color: #e63946;
-    font-size: 0.8rem;
-    animation: heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.footer-thanks {
-    font-family: 'Gotu', serif !important; /* Fuente descriptiva */
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 500px;
-    margin: 0 auto 35px;
-    line-height: 1.8;
-}
-
-/* BOTONES DE WHATSAPP OSCUROS */
-.ws-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 35px;
-}
-
-.ws-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 25px;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50px;
-    color: white;
-    text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    transition: all 0.3s ease;
-}
-
-.ws-btn:hover {
-    background-color: white;
-    color: #1a1a1a;
-    transform: translateY(-3px);
-}
-
-.ws-btn i {
-    color: #25d366; /* Mantenemos el verde solo en el icono */
-    font-size: 1.1rem;
-}
-
-/* TU HASHTAG */
-.footer-hashtag {
-    display: block;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: 4px;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* --- NAVEGACIÓN BLANCA COMPACTA Y TRANSPARENTE --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2000;
-    background-color: transparent; 
-    backdrop-filter: none; 
-    
-    /* Reducimos el padding para que las líneas estén cerca de las letras */
-    padding: 5px 0; 
-    
-    /* Líneas blancas de borde a borde */
-    border-top: 1px solid rgba(255, 255, 255, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-    
-    /* Acercamos la barra un poco más al borde superior de la pantalla */
-    margin-top: 10px; 
-}
-
-.nav-container {
-    width: 100%;
-    display: flex;
-    justify-content: sflex-end;
-    align-items: center;
-    padding: 0 40px; 
-    box-sizing: border-box;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: uppercase;
-    font-size: 0.75rem; /* Letra ligeramente más pequeña para look minimalista */
-    letter-spacing: 2px;
-    color: white;
-    font-weight: 600;
-    transition: 0.3s;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
-    line-height: 1; /* Ajuste para que la línea esté pegada */
-}
-
-.nav-links a:hover {
-    opacity: 0.7;
-}
-
-/* Ajuste de salto de sección más preciso */
-section {
-    scroll-margin-top: 80px;
-}
-
-@media (max-width: 600px) {
-    .navbar { 
-        margin-top: 5px; 
-        padding: 3px 0; 
-    }
-    .nav-container { 
-        padding: 0 15px; 
-        display: flex;             /* Activamos flexbox */
-        justify-content: flex-end; /* Empuja todo a la derecha */
-    }
-    .nav-links { 
-        display: flex;             /* Asegura que los links estén en línea */
-        gap: 12px; 
-        margin: 0; 
-        padding: 0;
-        list-style: none;
-    }
-    .nav-links a { 
-        font-size: 0.55rem; 
-    }
-    /* El nav-logo ya no es necesario aquí */
-}
-
-/* --- ESTILOS DE FLECHA INDICADORA (SCROLL) --- */
-.scroll-arrow {
-    position: absolute;
-    bottom: 18%; /* Distancia del borde inferior */
-    left: 50%;
-    transform: translateX(-50%);
-    color: white; /* Puedes cambiarlo a #d4af37 si prefieres el dorado */
-    text-align: center;
-    opacity: 0; /* Inicia invisible */
-    transition: opacity 1.5s ease; /* Aparece suavemente */
-    z-index: 10;
-    pointer-events: none; /* Para que no estorbe si alguien hace clic cerca */
-}
-/* Tamaño del texto 'Desliza' */
-.scroll-arrow p {
-    font-size: 12px;
-    margin-bottom: 2px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: sans-serif;
-}
-/* Tamaño del icono de la flecha */
-.scroll-arrow i {
-    font-size: 30px;
-    animation: bounce 2s infinite; /* Movimiento de rebote */
-}
-
-/* Animación de rebote suave */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-/* Clase que activa el script después de los 5 segundos */
-.show-arrow {
-    opacity: 0.8;
-}
-/* --- AJUSTE PARA SECCIONES CON FOTO DE FONDO (TEXTOS BLANCOS) --- */
-
-/* 1. Forzar blanco en el Hero (Sección 1) */
-.hero, 
-.hero .hero-subtitulo, 
-.hero h1, 
-.hero .fecha-grande,
-.hero #scroll-indicator p {
-    color: #ffffff !important;
-}
-
-/* 2. Forzar blanco en la Sección Especial (Tu Sección 2) */
-#especial, 
-#especial h2, 
-#especial p, 
-#especial .titulo-boda,
-#especial .subtitulo-final,
-#especial .estrellas {
-    color: #ffffff !important;
-}
-
-/* 3. Asegurar que las líneas y el botón de la sección especial se vean bien */
-#especial .btn-celebracion {
-    border: 1px solid #ffffff !important;
-    color: #ffffff !important;
-    background: transparent;
-}
-
-#especial .btn-celebracion:hover {
-    background: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* 4. Líneas divisorias blancas para Hero y Especial */
-.hero .divider::before, 
-.hero .divider::after,
-#especial .divider-flower::before,
-#especial .divider-flower::after {
-    background-color: rgba(255, 255, 255, 0.6) !important;
-}
-
-/* --- TEXTO OSCURO PARA EL RESTO --- */
-/* Esto mantiene el texto oscuro en Regalos, Ubicación, etc. */
-section:not(.hero):not(#especial) p,
-section:not(.hero):not(#especial) h2 {
-    color: #333333;
-}
-
-        </style>         
+           ========================================= */:root { --color-primario: #bc778b;  /* Rosa de botones y detalles */ --color-secundario: #823c2e;  /* Tinto de títulos y contador */ --color-oscuro: #3b2c35;  /* Fondos de carrusel y footer */ --color-dorado: #f2c94c;  /* Línea del cronograma */ } /* --- ESTILOS GLOBALES DE TEXTO --- */body { font-family: 'Gotu', serif;  /* Fuente por defecto para textos descriptivos */ color: #333; line-height: 1.6; } /* Títulos de Secciones Unificados */h2, .section-title { font-family: 'Josefin Sans', sans-serif !important; font-size: 2rem;  /* Tamaño unificado */ font-weight: 400; text-transform: uppercase; letter-spacing: 4px; color: #444; margin-bottom: 30px; text-align: center; } /* Textos Descriptivos (Párrafos) */p, .texto-descriptivo { font-family: 'Gotu', serif !important; font-size: 1.05rem; color: #555; } /* --- SECCIÓN CARROUSEL Y FOOTER (Color Oscuro Unificado) --- */.carousel-section, footer { background-color: #1a1a1a;  /* El tono oscuro del carrusel */ color: #ffffff; } footer { padding: 60px 20px; text-align: center; } footer p { color: rgba(255, 255, 255, 0.8) !important; font-family: 'Gotu', serif; } /* --- BOTONES (Para que combinen) --- */.btn-confirmar { font-family: 'Josefin Sans', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; } /* --- SECCIÓN HERO (PORTADA) --- */.hero { position: relative; height: 100vh;  /* Pantalla completa siempre */ width: 100%; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pareja.webp'); background-size: cover; background-position: center;  /* Centrado para celular */ background-repeat: no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; } /* --- AJUSTE ARTÍSTICO PARA PC (Enfoque en manos) --- */@media (min-width: 1024px) { .hero {  /* 65% sube la imagen lo necesario para ver manos/cintura sin llegar a los pies */  background-position: center 65%; } } /* --- ELEMENTOS DENTRO DEL HERO --- */.monograma { width: 120px; margin-bottom: 15px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)); } .hero h1 { font-family: 'Tangerine', cursive;  /* Nueva fuente aplicada */ font-size: 6rem;  /* Tamaño aumentado para Tangerine */ font-weight: 700; margin: 0; line-height: 0.8;  /* Ajuste para que los nombres estén más cerca */ text-shadow: 2px 2px 10px rgba(0,0,0,0.4); letter-spacing: 1px; } .divider { display: flex; align-items: center; justify-content: center; margin: 25px 0; } .divider::before, .divider::after { content: ""; height: 1px; width: 60px; background-color: rgba(255, 255, 255, 0.8); margin: 0 15px; } /* --- RESPONSIVE CELULAR --- */@media (max-width: 480px) { .hero h1 {  font-size: 4.5rem;   /* Ajuste para que quepa bien en pantallas móviles */ }  .monograma {  width: 100px; } } /* --- SECCIÓN ESPECIAL --- */#especial { position: relative; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('fondoseccion02.webp') no-repeat center center; background-size: cover; color: #ffffff; padding: 80px 20px 60px 20px; text-align: center; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; } .titulo-boda { font-size: 2.8rem; margin-bottom: 60px; font-family: 'Playfair Display', serif; } .estrellas { font-size: 28px;  /* <--- Estrellas reducidas como pediste */ margin-bottom: 2px;  /* <--- Casi pegadas a la frase */ color: #ffffff; letter-spacing: 4px; } .frase-especial { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; margin-top: 0; margin-bottom: 110px;  /* <--- ESTO ALEJA MUCHO EL BOTÓN HACIA ABAJO */ line-height: 1.2; max-width: 280px; } .btn-celebracion { display: inline-block; background-color: var(--color-primario); color: white; padding: 12px 25px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); } .btn-celebracion:hover { transform: scale(1.05); } /* --- CARRUSEL CORREGIDO --- */.carousel-section { padding: 50px 0; background-color: var(--color-oscuro); } .carousel-container { position: relative; width: 90%; max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: 12px; } .carousel-slide { display: flex; transition: transform 0.6s ease; } .carousel-slide img { width: 100%; height: 500px; object-fit: cover; flex-shrink: 0; } /* Estilos de las flechas */.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4);  /* Fondo oscurito para que se vean */ color: white; border: none; padding: 15px; cursor: pointer; z-index: 10; border-radius: 50%;  /* Flechas circulares */ width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: 0.3s; } .carousel-btn:hover { background: var(--color-primario); } .prev { left: 15px; } /* A la izquierda sobre la foto */.next { right: 15px; } /* A la derecha sobre la foto *//* Puntos de abajo */.carousel-dots { text-align: center; margin-top: 15px; } .dot { display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%; cursor: pointer; } .dot.active { background-color: var(--color-primario); transform: scale(1.3); } /* --- CONTADOR --- */#contador { background-color: var(--color-secundario); padding: 60px 20px; color: white; text-align: center; } .timer-val { font-size: 45px; font-weight: 600; } .timer-container { display: flex; justify-content: center; gap: 20px; } /* --- SECCIÓN ITINERARIO (Lugares & Horarios) --- */.seccion-itinerario { padding: 80px 20px; text-align: center; background-color: #f4ebde; } .titulo-itinerario { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--color-primario);  /* Título en rosa */ margin-bottom: 50px; text-transform: lowercase; } .tarjeta-evento { max-width: 450px; margin: 0 auto 70px auto; padding: 0 10px; } .tarjeta-evento h3 { font-family: 'Josefin Sans', sans-serif; font-size: 22px; color: var(--color-primario);  /* Subtítulo en rosa */ margin-bottom: 5px; } .descripcion-evento { font-size: 1rem; color: #666; margin-bottom: 15px; line-height: 1.4; } .logistica-texto { font-family: 'Josefin Sans', sans-serif; font-size: 1.1rem; margin-bottom: 20px; color: #333; } .logistica-texto strong { font-weight: 700; color: #000000;  /* Horario en rosa */ } .foto-lugar { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; display: block;  /* DESACTIVAR CLIC Y AMPLIACIÓN */ cursor: default; pointer-events: none; } .btn-ubicacion { display: inline-block; padding: 10px 30px; background-color: var(--color-primario);  /* BOTÓN ROSA */ color: white; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; border: none; } .btn-ubicacion:hover { transform: scale(1.05); filter: brightness(1.1); } /* --- VESTIMENTA (ICONOS REDUCIDOS) --- */.vestimenta-section { background-color: #f4f0eb; padding: 80px 20px; text-align: center; } .vestimenta-titulo { font-family: 'Josefin Sans', sans-serif; font-size: 38px; color: var(--color-secundario); } /* Esta es la regla que debes añadir o cambiar */.icono-img { width: 118px;  /* Tamaño pequeño y elegante */ height: auto; margin: 10px 20px;  /* Espacio entre ellos */ opacity: 0.8; bottom: 3px; position: relative;  /* Un toque sutil */ } .fila-colores { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; } .circulo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); } /* --- SECCIÓN REGALOS (CREADA DESDE CERO) --- */.seccion-regalos { background-color: #fff2e6;  /* Color naranja suave/crema */ padding: 80px 20px; text-align: center;  /* ESTO CENTRA TODO EL TEXTO */ } .regalos-container { max-width: 800px; margin: 0 auto; } .regalos-titulo { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--color-secundario); margin-bottom: 20px; } .regalos-texto { font-family: 'Gotu', sans-serif;  /* Usando la fuente que ya tienes para elegancia */ color: #555; font-size: 17px; line-height: 1.6; margin-bottom: 25px; } .regalos-subtitulo { font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; color: var(--color-primario); margin-top: 10px; } .imagen-gift { width: 200px;  /* El tamaño que prefieras */ height: auto; margin: 20px auto; display: block; border-radius: 30px;  /* Esto le da las esquinas redondeadas igual que a las otras fotos */ object-fit: cover; } /* --- CRONOGRAMA (DISEÑO PREMIUM CON ICONOS DE COLOR) --- */.seccion-cronograma { background-color: #fffaf5; padding: 80px 20px; text-align: center; } .header-cronograma h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--color-secundario); margin-bottom: 10px; font-style: italic; } .header-cronograma p { font-family: 'Montserrat', sans-serif; color: #666; margin-bottom: 50px; font-size: 1.1rem; } .timeline-container { position: relative; max-width: 900px; margin: 0 auto; padding: 20px 0; } /* Línea central dorada */.timeline-container::after { content: ''; position: absolute; width: 2px; background-color: var(--color-dorado); left: 50%; top: 0; bottom: 0; transform: translateX(-50%); } .timeline-item { position: relative; width: 50%; padding: 15px 40px; box-sizing: border-box; display: flex; } /* Bolita en la línea del tiempo */.timeline-item::after { content: ''; position: absolute; width: 14px; height: 14px; background-color: var(--color-dorado); border: 2px solid white; top: 50%; transform: translateY(-50%); border-radius: 50%; z-index: 5; } .item-izq { left: 0; justify-content: flex-end; } .item-izq::after { right: -8px; } .item-der { left: 50%; justify-content: flex-start; } .item-der::after { left: -8px; } /* TARJETA DEL EVENTO */.cronograma-card { background: white; padding: 15px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); display: flex; align-items: center; gap: 15px; width: 100%; max-width: 300px; text-align: left; transition: transform 0.3s ease; } .cronograma-card:hover { transform: translateY(-5px); } /* --- ESTILO DE ICONOS CIRCULARES CON COLOR --- */.icono-circulo { width: 55px; height: 55px; border-radius: 50%;  /* Círculo perfecto */ display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); } /* Colores de fondo recuperados */.bg-pink { background-color: #ffebee !important; color: var(--color-primario) !important; } .bg-orange { background-color: #fff3e0 !important; color: #fb8c00 !important; } .bg-purple { background-color: #f3e5f5 !important; color: #8e24aa !important; } .bg-blue { background-color: #e3f2fd !important; color: #1e88e5 !important; } .bg-green { background-color: #e8f5e9 !important; color: #43a047 !important; } .info-texto h3 { margin: 0; font-size: 1.1rem; color: #333; font-family: 'Poppins', sans-serif; } .info-texto .hora { display: block; font-size: 0.9rem; color: var(--color-secundario); font-weight: 600; font-family: 'Josefin Sans', sans-serif; } /* --- RESPONSIVE (MÓVILES) --- */@media (max-width: 600px) { .timeline-container::after {  left: 20px; }  .timeline-item {  width: 100%;  left: 0 !important;  padding-left: 50px !important;  padding-right: 10px !important;  justify-content: flex-start !important; }  .timeline-item::after {  left: 13px !important; }  .cronograma-card {  max-width: 100%; } } /* --- GALERÍA MOSAICO MATEMÁTICO --- */.seccion-instantes { background-color: #3b2c35;  /* Ajustado para que no sea oscuro si prefieres el fondo blanco */ padding: 80px 20px; text-align: center; } .instantes-titulo { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--color-primario); margin-bottom: 10px; } .instantes-texto { font-size: 1.1rem; color: #666; margin-bottom: 40px; font-style: italic; } .galeria-mosaico { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px; gap: 15px; max-width: 1100px; margin: 0 auto; grid-auto-flow: dense; } .foto-v { grid-row: span 2; } .foto-h { grid-row: span 1; } .foto-galeria { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; cursor: pointer; transition: transform 0.3s ease; } /* --- SOLUCIÓN PARA QUE SE AMPLÍEN Y TAPEN TODO --- */.foto-galeria.fullscreen { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; object-fit: contain !important; background-color: rgba(0, 0, 0, 0.98) !important; z-index: 1000000 !important;  /* Por encima de los títulos rosas */ margin: 0 !important; padding: 20px !important; border-radius: 0 !important; transform: translate(0, 0) !important;  /* ELIMINA EL DESPLAZAMIENTO A LA DERECHA */ cursor: zoom-out; } /* Ajuste para móviles */@media (max-width: 600px) { .galeria-mosaico {  grid-template-columns: repeat(3, 1fr);  grid-auto-rows: 100px;  gap: 8px; } } /* --- SECCIÓN RSVP --- */.seccion-rsvp { padding: 80px 20px; background-color: #e6e6e6;  /* Fondo blanco */ text-align: center; } .rsvp-container { max-width: 600px; margin: 0 auto;  /* Centra el contenedor */ display: flex; flex-direction: column; align-items: center; } .rsvp-titulo { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--color-secundario); margin-bottom: 5px; } .rsvp-subtitulo { font-family: 'Josefin Sans', sans-serif; letter-spacing: 4px; font-size: 1.2rem; color: #b58d52;  /* Color dorado/ocre */ margin-bottom: 20px; font-weight: bold; } .rsvp-texto { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #666; margin-bottom: 35px; line-height: 1.6; } /* El botón con tu clase btn-celebracion */.btn-celebracion.btn-confirmar { display: inline-block; background-color: var(--color-secundario);  /* O usa #25d366 si quieres verde */ color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-family: 'Josefin Sans', sans-serif; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: none; cursor: pointer; } .btn-celebracion.btn-confirmar:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); filter: brightness(1.1); } /* --- FOOTER WEDDING (UNIFICADO Y OSCURO) --- */.footer-wedding { padding: 80px 20px; background-color: #3b2c35 !important;  /* Nuevo color oscuro */ text-align: center; color: white !important; } .footer-names { font-family: 'Tangerine', cursive !important; font-size: 2.5rem !important;  /* Tamaño grande para que luzca */ color: white !important; margin-bottom: 10px; text-transform: none !important; } .footer-date { font-family: 'Josefin Sans', sans-serif !important; letter-spacing: 4px; text-transform: uppercase; font-size: -6.9rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 25px; } .footer-divider-container { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 0 auto 25px; max-width: 250px; } .footer-divider-container .line { flex: 1; height: 1px; background-color: rgba(255, 255, 255, 0.3); } .footer-heart { color: #e63946; font-size: 0.8rem; animation: heartbeat 1.5s infinite; } @keyframes heartbeat { 0% {  transform: scale(1); }  50% {  transform: scale(1.2); }  100% {  transform: scale(1); } } .footer-thanks { font-family: 'Gotu', serif !important;  /* Fuente descriptiva */ font-size: -24.9rem; color: rgba(255, 255, 255, 0.9); max-width: 500px; margin: 0 auto 35px; line-height: 1.8; } /* BOTONES DE WHATSAPP OSCUROS */.ws-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 35px; } .ws-btn { display: flex; align-items: center; gap: 10px; padding: 12px 25px; background-color: transparent; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50px; color: white; text-decoration: none; font-family: 'Josefin Sans', sans-serif; font-size: 0.85rem; font-weight: 400; transition: all 0.3s ease; } .ws-btn:hover { background-color: white; color: #1a1a1a; transform: translateY(-3px); } .ws-btn i { color: #25d366;  /* Mantenemos el verde solo en el icono */ font-size: 1.1rem; } /* TU HASHTAG */.footer-hashtag { display: block; font-family: 'Josefin Sans', sans-serif; font-size: -26.1rem; color: rgba(255, 255, 255, 0.5); letter-spacing: 4px; margin-top: 20px; font-weight: bold; } /* --- NAVEGACIÓN BLANCA COMPACTA Y TRANSPARENTE --- */.navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; background-color: transparent; backdrop-filter: none;  /* Reducimos el padding para que las líneas estén cerca de las letras */ padding: 5px 0;  /* Líneas blancas de borde a borde */ border-top: 1px solid rgba(255, 255, 255, 0.7); border-bottom: 1px solid rgba(255, 255, 255, 0.7);  /* Acercamos la barra un poco más al borde superior de la pantalla */ margin-top: 10px; } .nav-container { width: 100%; display: flex; justify-content: sflex-end; align-items: center; padding: 0 40px; box-sizing: border-box; } .nav-links { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; } .nav-links a { text-decoration: none; font-family: 'Josefin Sans', sans-serif; text-transform: uppercase; font-size: 0.75rem;  /* Letra ligeramente más pequeña para look minimalista */ letter-spacing: 2px; color: white; font-weight: 600; transition: 0.3s; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9); line-height: 1;  /* Ajuste para que la línea esté pegada */ } .nav-links a:hover { opacity: 0.7; } /* Ajuste de salto de sección más preciso */section { scroll-margin-top: 80px; } @media (max-width: 600px) { .navbar {  margin-top: 5px;  padding: 3px 0; }  .nav-container {  padding: 0 15px;  display: flex;   /* Activamos flexbox */  justify-content: flex-end;   /* Empuja todo a la derecha */ }  .nav-links {  display: flex;   /* Asegura que los links estén en línea */  gap: 12px;  margin: 0;  padding: 0;  list-style: none; }  .nav-links a {  font-size: 0.55rem; }  /* El nav-logo ya no es necesario aquí */ } /* --- ESTILOS DE FLECHA INDICADORA (SCROLL) --- */.scroll-arrow { position: absolute; bottom: 18%;  /* Distancia del borde inferior */ left: 50%; transform: translateX(-50%); color: white;  /* Puedes cambiarlo a #d4af37 si prefieres el dorado */ text-align: center; opacity: 0;  /* Inicia invisible */ transition: opacity 1.5s ease;  /* Aparece suavemente */ z-index: 10; pointer-events: none;  /* Para que no estorbe si alguien hace clic cerca */ } /* Tamaño del texto 'Desliza' */.scroll-arrow p { font-size: 12px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 3px; font-family: sans-serif; } /* Tamaño del icono de la flecha */.scroll-arrow i { font-size: 30px; animation: bounce 2s infinite;  /* Movimiento de rebote */ } /* Animación de rebote suave */@keyframes bounce { 0%, 20%, 50%, 80%, 100% {  transform: translateY(0); }  40% {  transform: translateY(-10px); }  60% {  transform: translateY(-5px); } } /* Clase que activa el script después de los 5 segundos */.show-arrow { opacity: 0.8; } /* --- AJUSTE PARA SECCIONES CON FOTO DE FONDO (TEXTOS BLANCOS) --- *//* 1. Forzar blanco en el Hero (Sección 1) */.hero, .hero .hero-subtitulo, .hero h1, .hero .fecha-grande, .hero #scroll-indicator p { color: #ffffff !important; } /* 2. Forzar blanco en la Sección Especial (Tu Sección 2) */#especial, #especial h2, #especial p, #especial .titulo-boda, #especial .subtitulo-final, #especial .estrellas { color: #ffffff !important; font-size: -1px; } /* 3. Asegurar que las líneas y el botón de la sección especial se vean bien */#especial .btn-celebracion { border: 1px solid #ffffff !important; color: #ffffff !important; background: transparent; } #especial .btn-celebracion:hover { background: #ffffff !important; color: #000000 !important; } /* 4. Líneas divisorias blancas para Hero y Especial */.hero .divider::before, .hero .divider::after, #especial .divider-flower::before, #especial .divider-flower::after { background-color: rgba(255, 255, 255, 0.6) !important; } /* --- TEXTO OSCURO PARA EL RESTO --- *//* Esto mantiene el texto oscuro en Regalos, Ubicación, etc. */section:not(.hero):not(#especial) p, section:not(.hero):not(#especial) h2 { color: #2d2c2c; font-style: normal; padding-right: 7px; padding-left: 8px; margin-right: 14px; margin-left: 14px; text-transform: none; font-family: 'Josefin Sans', sans-serif; font-size: 17px; }</style>         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotu&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap">
     </head>     
     <body> 
-<nav class="navbar">
-    <div class="nav-container">
-         <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#seccion-itinerario">Evento</a></li>
-            <li><a href="#seccion-regalos">Regalos</a></li>
-            <li><a href="#seccion-instantes">Fotos</a></li>
-            <li><a href="#seccion-rsvp">RSVP</a></li>
-        </ul>
-    </div>
-</nav>
-      <section class="hero"> 
-   <div class="hero-content reveal"> 
-    <img src="monograma01.webp" alt="Logo" class="monograma"> 
-    <p class="hero-subtitulo">Nos casamos</p> 
-    <h1>Lesly &<br>Isidro</h1> 
-    <div class="divider">💍</div>                 
-    <p class="hero-subtitulo fecha-grande">07 . 03 . 2026</p> 
-    <p class="hero-subtitulo" style="font-size: 0.8rem; margin-top: 10px;">Villa la Moraleja, Dgo.</p> 
-</div>
-
-    <div id="scroll-indicator" class="scroll-arrow">
-        <p>Desliza</p>
-        <i class="fas fa-chevron-down"></i>
-    </div>
-</section>     
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#seccion-itinerario">Evento</a>
+                    </li>
+                    <li>
+                        <a href="#seccion-regalos">Regalos</a>
+                    </li>
+                    <li>
+                        <a href="#seccion-instantes">Fotos</a>
+                    </li>
+                    <li>
+                        <a href="#seccion-rsvp">RSVP</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="hero"> 
+            <div class="hero-content reveal"> 
+                <img src="monograma01.webp" alt="Logo" class="monograma"> 
+                <p class="hero-subtitulo">Nos casamos</p> 
+                <h1>Lesly &<br>Isidro</h1> 
+                <div class="divider">💍</div>                 
+                <p class="hero-subtitulo fecha-grande">07 . 03 . 2026</p> 
+                <p class="hero-subtitulo" style="font-size: 0.8rem; margin-top: 10px;">Villa la Moraleja, Dgo.</p> 
+            </div>
+            <div id="scroll-indicator" class="scroll-arrow">
+                <p>Desliza</p><i class="fas fa-chevron-down"></i>
+            </div>
+        </section>         
         <section id="especial"> 
             <h2 class="titulo-boda reveal reveal-up">NUESTRA BODA, <br>UN DIA ESPECIAL&nbsp;</h2> 
             <div class="texto-contenedor reveal reveal-up delay-1"> 
                 <p style="font-size: 17px; font-family: 'Gotu', sans-serif;">Tenemos el gusto de invitarte a este día tan importante de nuestras vidas</p> 
                 <p style="font-family: 'Gotu', sans-serif; font-size: 16px;">Queremos compartir contigo la felicidad de nuestra unión</p> 
                 <p>Esperamos contar con tu presencia</p> 
-            </div>            <a href="#seccion-rsvp" class="btn-celebracion btn-deslizar reveal reveal-pop delay-2">¡Únete a nuestra celebración!</a>
+            </div>             <a href="#seccion-rsvp" class="btn-celebracion btn-deslizar reveal reveal-pop delay-2">¡Únete a nuestra celebración!</a>
             <div class="estrellas reveal reveal-up">★★★★★</div>             
             <p class="subtitulo-final reveal reveal-up">Un momento inolvidable</p> 
         </section>         
-        <section id="carousel-section" class="carousel-section">              
+        <section id="carousel-section" class="carousel-section"> 
             <div class="carousel-container reveal reveal-pop"> 
                 <div class="carousel-slide" id="slide"> 
                     <img src="fotoh (1).webp" alt="Foto 1"> 
@@ -1001,52 +86,38 @@ section:not(.hero):not(#especial) h2 {
             <h3 class="reveal reveal-up">NOS VEMOS EN</h3> 
             <div id="wedding-timer" class="reveal reveal-pop"> 
                 <div class="timer-container"> 
-                    <div class="timer-unit">
-                        <span id="d_val" class="timer-val">00</span>
-                        <span class="label">Días</span>
+                    <div class="timer-unit"><span id="d_val" class="timer-val">00</span><span class="label">Días</span>
                     </div>                     
-                    <div class="timer-unit">
-                        <span id="h_val" class="timer-val">00</span>
-                        <span class="label">Hrs</span>
+                    <div class="timer-unit"><span id="h_val" class="timer-val">00</span><span class="label">Hrs</span>
                     </div>                     
-                    <div class="timer-unit">
-                        <span id="m_val" class="timer-val">00</span>
-                        <span class="label">Min</span>
+                    <div class="timer-unit"><span id="m_val" class="timer-val">00</span><span class="label">Min</span>
                     </div>                     
-                    <div class="timer-unit">
-                        <span id="s_val" class="timer-val">00</span>
-                        <span class="label">Seg</span>
+                    <div class="timer-unit"><span id="s_val" class="timer-val">00</span><span class="label">Seg</span>
                     </div>                     
                 </div>                 
             </div>             
         </section>         
-    <section id="seccion-itinerario" class="seccion-itinerario">
-    <h2 class="titulo-itinerario reveal reveal-up">LUGARES & HORARIOS</h2> 
-    
-    <article class="tarjeta-evento reveal reveal-up"> 
-        <h3>Ceremonia Religiosa</h3> 
-        <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p> 
-        <p class="logistica-texto"><strong>17:00 hrs</strong> | Parroquia del Espíritu Santo</p>                 
-        <img src="iglesia.webp" class="foto-lugar" alt="Parroquia Espíritu Santo"> 
-        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-1" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-    </article>             
-
-    <article class="tarjeta-evento reveal reveal-up"> 
-        <h3>Ceremonia Civil</h3> 
-        <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p> 
-        <p class="logistica-texto"><strong>18:30 hrs</strong> | Villa la Moraleja</p>                 
-        <img src="civil.webp" class="foto-lugar" alt="Ceremonia Civil"> 
-        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-    </article>             
-
-    <article class="tarjeta-evento reveal reveal-up"> 
-        <h3>Recepción</h3> 
-        <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p> 
-        <p class="logistica-texto"><strong>19:00 hrs</strong> | Villa la Moraleja</p>                 
-        <img src="recepcion.webp" class="foto-lugar" alt="Recepción"> 
-        <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
-    </article>             
-</section>             
+        <section id="seccion-itinerario" class="seccion-itinerario">
+            <h2 class="titulo-itinerario reveal reveal-up">LUGARES & HORARIOS</h2> 
+            <article class="tarjeta-evento reveal reveal-up"> 
+                <h3>Ceremonia Religiosa</h3> 
+                <p class="descripcion-evento">Hay momentos que se quedan grabados en el alma. Queremos que seas testigo de nuestro "Sí" ante Dios en la Parroquia Espíritu Santo.</p> 
+                <p class="logistica-texto"><strong>17:00 hrs</strong> | Parroquia del Espíritu Santo</p> 
+                <img src="iglesia.webp" class="foto-lugar" alt="Parroquia Espíritu Santo"> <a href="https://maps.app.goo.gl/tu-link-de-google-maps-1" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+            </article>             
+            <article class="tarjeta-evento reveal reveal-up"> 
+                <h3>Ceremonia Civil</h3> 
+                <p class="descripcion-evento">Con el atardecer como testigo, firmaremos el compromiso de amarnos siempre en los jardines de nuestra sede.</p> 
+                <p class="logistica-texto"><strong>18:30 hrs</strong> | Villa la Moraleja</p> 
+                <img src="civil.webp" class="foto-lugar" alt="Ceremonia Civil"> <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+            </article>             
+            <article class="tarjeta-evento reveal reveal-up"> 
+                <h3>Recepción</h3> 
+                <p class="descripcion-evento">¡Que comience la fiesta! Nos vemos para bailar, reír y celebrar que el amor siempre gana.</p> 
+                <p class="logistica-texto"><strong>19:00 hrs</strong> | Villa la Moraleja</p> 
+                <img src="recepcion.webp" class="foto-lugar" alt="Recepción"> <a href="https://maps.app.goo.gl/tu-link-de-google-maps-2" target="_blank" rel="noopener" class="btn-ubicacion">Ver Ubicación</a> 
+            </article>             
+        </section>         
         <section class="vestimenta-section"> 
             <h2 class="vestimenta-titulo reveal reveal-up">Código de Vestimenta</h2> 
             <p class="vestimenta-subtitulo reveal reveal-up">Formal</p> 
@@ -1075,48 +146,40 @@ section:not(.hero):not(#especial) h2 {
                     <div class="circulo" style="background-color: #F9DB2D;"></div>                     
                 </div>                 
             </div>             
-        </section> 
+        </section>         
         <section id="seccion-regalos" class="seccion-regalos"> 
-        <div class="regalos-container reveal reveal-up"> 
-        <h2 class="regalos-titulo">Regalos</h2> 
-        <p class="regalos-texto"> 
-            El mejor regalo es la alegría y el honor de compartir con ustedes este día tan especial.
-            <br><br> 
-            Si es su deseo obsequiarnos algo adicional les recomendamos la siguiente opción:
-        </p> 
-        <h3 class="regalos-subtitulo">Lluvia de sobres</h3> 
-        <img src="gift.webp" alt="Lluvia de sobres" class="imagen-gift"> 
-    </div> 
-</section> 
+            <div class="regalos-container reveal reveal-up"> 
+                <h2 class="regalos-titulo">Regalos</h2> 
+                <p class="regalos-texto"> 
+            El mejor regalo es la alegría y el honor de compartir con ustedes este día tan especial. <br><br> 
+            Si es su deseo obsequiarnos algo adicional les recomendamos la siguiente opción: </p> 
+                <h3 class="regalos-subtitulo">Lluvia de sobres</h3> 
+                <img src="gift.webp" alt="Lluvia de sobres" class="imagen-gift"> 
+            </div>             
+        </section>         
         <section id="seccion-instantes" class="seccion-instantes"> 
-    <h2 class="instantes-titulo reveal reveal-up">Instantes juntos</h2> 
-    <p class="instantes-texto reveal reveal-up">Cómplices en cada risa, cada locura y muy pronto en nuestro "Sí".</p> 
-    
-<div class="galeria-mosaico"> 
-    <img src="fotov01.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 1" onclick="ampliarFoto(this)"> 
-    
-    <img src="fotov02.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 2" onclick="ampliarFoto(this)"> 
-    
-    <img src="fotohz01.webp" class="foto-galeria foto-h reveal reveal-pop" alt="Pareja 3" onclick="ampliarFoto(this)"> 
-    <img src="fotohz02.webp" class="foto-galeria foto-h reveal reveal-pop" alt="Pareja 4" onclick="ampliarFoto(this)"> 
-
-    <img src="fotov03.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 5" onclick="ampliarFoto(this)"> 
-    <img src="fotov04.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 6" onclick="ampliarFoto(this)"> 
-    <img src="fotov05.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 7" onclick="ampliarFoto(this)"> 
-</div>              
-</section>
+            <h2 class="instantes-titulo reveal reveal-up">Instantes juntos</h2> 
+            <p class="instantes-texto reveal reveal-up">Cómplices en cada risa, cada locura y muy pronto en nuestro "Sí".</p> 
+            <div class="galeria-mosaico"> 
+                <img src="fotov01.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 1" onclick="ampliarFoto(this)"> 
+                <img src="fotov02.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 2" onclick="ampliarFoto(this)"> 
+                <img src="fotohz01.webp" class="foto-galeria foto-h reveal reveal-pop" alt="Pareja 3" onclick="ampliarFoto(this)"> 
+                <img src="fotohz02.webp" class="foto-galeria foto-h reveal reveal-pop" alt="Pareja 4" onclick="ampliarFoto(this)"> 
+                <img src="fotov03.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 5" onclick="ampliarFoto(this)"> 
+                <img src="fotov04.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 6" onclick="ampliarFoto(this)"> 
+                <img src="fotov05.webp" class="foto-galeria foto-v reveal reveal-pop" alt="Pareja 7" onclick="ampliarFoto(this)"> 
+            </div>             
+        </section>
         <section class="seccion-cronograma"> 
-            <header class="header-cronograma reveal reveal-up"> 
-                <h2>El gran día</h2> 
-                <h1>Cronograma</h1> 
+            <header class="header-cronograma reveal reveal-up">                  
+                <h1 style="font-family: 'Josefin Sans', sans-serif; font-size: 40px; padding-top: 0px; margin-top: -7px;">Cronograma</h1> 
                 <p class="subtitulo-cronograma"> 
                 Hemos preparado un día lleno de momentos especiales. Aquí tienes el programa completo. </p> 
             </header>             
             <div class="timeline-container"> 
                 <div class="timeline-item item-izq reveal reveal-left"> 
                     <article class="cronograma-card"> 
-                        <div class="icono-circulo bg-pink">
-                            <i class="fa-solid fa-church"></i>
+                        <div class="icono-circulo bg-pink"><i class="fa-solid fa-church"></i>
                         </div>                         
                         <div class="info-texto"> <span class="hora">17:00 hrs</span> 
                             <h3>Ceremonia Religiosa</h3> 
@@ -1125,8 +188,7 @@ section:not(.hero):not(#especial) h2 {
                 </div>                 
                 <div class="timeline-item item-der reveal reveal-right"> 
                     <article class="cronograma-card"> 
-                        <div class="icono-circulo bg-orange">
-                            <i class="fa-solid fa-pen-nib"></i>
+                        <div class="icono-circulo bg-orange"><i class="fa-solid fa-pen-nib"></i>
                         </div>                         
                         <div class="info-texto"> <span class="hora">18:30 hrs</span> 
                             <h3>Ceremonia Civil</h3> 
@@ -1135,8 +197,7 @@ section:not(.hero):not(#especial) h2 {
                 </div>                 
                 <div class="timeline-item item-izq reveal reveal-left"> 
                     <article class="cronograma-card"> 
-                        <div class="icono-circulo bg-purple">
-                            <i class="fa-solid fa-wine-glass"></i>
+                        <div class="icono-circulo bg-purple"><i class="fa-solid fa-wine-glass"></i>
                         </div>                         
                         <div class="info-texto"> <span class="hora">19:00 hrs</span> 
                             <h3>Recepción</h3> 
@@ -1145,8 +206,7 @@ section:not(.hero):not(#especial) h2 {
                 </div>                 
                 <div class="timeline-item item-der reveal reveal-right"> 
                     <article class="cronograma-card"> 
-                        <div class="icono-circulo bg-blue">
-                            <i class="fa-solid fa-people-group"></i>
+                        <div class="icono-circulo bg-blue"><i class="fa-solid fa-people-group"></i>
                         </div>                         
                         <div class="info-texto"> <span class="hora">19:30 hrs</span> 
                             <h3>Entrada y Vals</h3> 
@@ -1155,8 +215,7 @@ section:not(.hero):not(#especial) h2 {
                 </div>                 
                 <div class="timeline-item item-izq reveal reveal-left"> 
                     <article class="cronograma-card"> 
-                        <div class="icono-circulo bg-green">
-                            <i class="fa-solid fa-utensils"></i>
+                        <div class="icono-circulo bg-green"><i class="fa-solid fa-utensils"></i>
                         </div>                         
                         <div class="info-texto"> <span class="hora">20:00 hrs</span> 
                             <h3>Cena</h3> 
@@ -1165,8 +224,7 @@ section:not(.hero):not(#especial) h2 {
                 </div>                 
                 <div class="timeline-item item-der reveal reveal-right"> 
                     <article class="cronograma-card"> 
-                        <div class="icono-circulo bg-pink">
-                            <i class="fa-solid fa-music"></i>
+                        <div class="icono-circulo bg-pink"><i class="fa-solid fa-music"></i>
                         </div>                         
                         <div class="info-texto"> <span class="hora">21:00 hrs</span> 
                             <h3>¡A bailar!</h3> 
@@ -1186,33 +244,19 @@ section:not(.hero):not(#especial) h2 {
                 </div>                 
             </div>             
         </section>         
-<footer class="footer-wedding"> 
-    <h2 class="footer-names reveal reveal-up">Lesly & Isidro</h2> 
-    
-    <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>  
-
-    <div class="footer-divider-container reveal reveal-up">
-        <div class="line"></div>
-        <i class="fa-solid fa-heart footer-heart"></i>
-        <div class="line"></div>
-    </div>
-
-    <p class="footer-thanks reveal reveal-up"> 
-        Con todo nuestro amor, gracias por ser parte de nuestra historia. 
-    </p> 
-
-    <div class="ws-container reveal reveal-pop"> 
-        <a href="https://wa.me/543834683410" class="ws-btn" target="_blank"> 
-            <i class="fab fa-whatsapp"></i> WhatsApp Lesly
-        </a> 
-        <a href="https://wa.me/TUNUMERO" class="ws-btn" target="_blank"> 
-            <i class="fab fa-whatsapp"></i> WhatsApp Isidro
-        </a> 
-    </div>
-
-    <span class="footer-hashtag reveal reveal-up">#LESLY&ISIDRO2026</span> 
-</footer>         
-<script>
+        <footer class="footer-wedding"> 
+            <h2 class="footer-names reveal reveal-up">Lesly & Isidro</h2> 
+            <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>             
+            <div class="footer-divider-container reveal reveal-up">
+                <div class="line"></div><i class="fa-solid fa-heart footer-heart"></i>
+                <div class="line"></div>
+            </div>
+            <p class="footer-thanks reveal reveal-up"> 
+        Con todo nuestro amor, gracias por ser parte de nuestra historia.  </p> 
+            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/5218713607260" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/8715983056" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
+            </div><span class="footer-hashtag reveal reveal-up">#LESLY&ISIDRO2026</span> 
+        </footer>         
+        <script>
     // 1. FUNCIÓN UNIVERSAL PARA AMPLIAR FOTOS
     window.ampliarFoto = function(img) {
         if (img.classList.contains('fullscreen')) {
@@ -1364,6 +408,6 @@ section:not(.hero):not(#especial) h2 {
             setTimeout(() => { if(arrow) arrow.remove(); }, 1000);
         }
     });
-    </script>        
+    </script>         
     </body>     
 </html>
