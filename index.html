@@ -1471,25 +1471,61 @@
         }
     })();
 
-    </script>   
+ <script>
+function parseCSV(text) {
+  const rows = [];
+  let row = [];
+  let current = '';
+  let insideQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const next = text[i + 1];
+
+    if (char === '"' && insideQuotes && next === '"') {
+      current += '"';
+      i++;
+    } else if (char === '"') {
+      insideQuotes = !insideQuotes;
+    } else if (char === ',' && !insideQuotes) {
+      row.push(current);
+      current = '';
+    } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+      if (current || row.length) {
+        row.push(current);
+        rows.push(row);
+      }
+      row = [];
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+
+  if (current || row.length) {
+    row.push(current);
+    rows.push(row);
+  }
+
+  return rows;
+}
+</script>
 
 <script>
 fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWTKNFVUAE1oXDhO0m3mcbOfKBTmaP4ppaoBVrG4Jnt3WRp2OM20vns7e/pub?gid=1151585333&single=true&output=csv")
   .then(res => res.text())
-  .then(csv => {
-    const rows = csv.split("\n");
+  .then(csvText => {
+    const data = parseCSV(csvText);
     const track = document.getElementById("comentarios");
 
     if (!track) return;
 
     let total = 0;
 
-    rows.slice(1).forEach(row => {
-      if (!row.trim()) return;
-
-      const cols = row.split(",");
-      const nombre = cols[3];   // columna 4
-      const mensaje = cols[5];  // columna 6
+    // saltamos encabezado
+    data.slice(1).forEach(row => {
+      const nombre = row[3];   // columna 4
+      const mensaje = row[5];  // columna 6
 
       if (!nombre || !mensaje) return;
 
@@ -1504,16 +1540,19 @@ fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWT
       total++;
     });
 
-    // --- carrusel automático ---
+    if (total <= 1) return;
+
     let index = 0;
     setInterval(() => {
       index = (index + 1) % total;
       track.style.transform = `translateX(-${index * 100}%)`;
     }, 4000);
-  });
+  })
+  .catch(err => console.error("Error cargando mensajes:", err));
 </script>
 
         
     </body>     
 </html>
+
 
