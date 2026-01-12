@@ -883,51 +883,24 @@
         color: #333;
     }
 
-/* Sección comentarios */
-.mensajes {
-  padding: 4rem 1rem;
-  background: #fdfaf6; /* mismo tono que tu web */
-  text-align: center;
-}
-
-/* Título */
-.mensajes h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Contenedor de comentarios */
-#comentarios {
+/* Comentarios */
+.comentarios-carrusel {
+  overflow: hidden;
   max-width: 800px;
   margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
 }
 
-/* Cada comentario */
+/* Pista horizontal */
+.comentarios-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* Cada comentario ocupa todo el ancho */
 .comentario {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.06);
-  text-align: left;
+  min-width: 100%;
+  box-sizing: border-box;
 }
-
-/* Nombre */
-.comentario strong {
-  display: block;
-  font-weight: 600;
-  margin-bottom: .5rem;
-}
-
-/* Mensaje */
-.comentario p {
-  margin: 0;
-  line-height: 1.6;
-  color: #555;
-}
-
 
 
 
@@ -1389,8 +1362,12 @@
 
 <section class="mensajes">
   <h2>Mensajes para los novios</h2>
-  <div id="comentarios"></div>
+
+  <div class="comentarios-carrusel">
+    <div id="comentarios" class="comentarios-track"></div>
+  </div>
 </section>
+
 
         
         <section class="seccion-rsvp"> 
@@ -1496,35 +1473,47 @@
 
     </script>   
 
- <script>
-      fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWTKNFVUAE1oXDhO0m3mcbOfKBTmaP4ppaoBVrG4Jnt3WRp2OM20vns7e/pub?gid=1151585333&single=true&output=csv")
-        .then(res => res.text())
-        .then(csv => {
-          const rows = csv.split("\n");
-          const contenedor = document.getElementById("comentarios");
+<script>
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWTKNFVUAE1oXDhO0m3mcbOfKBTmaP4ppaoBVrG4Jnt3WRp2OM20vns7e/pub?gid=1151585333&single=true&output=csv")
+  .then(res => res.text())
+  .then(csv => {
+    const rows = csv.split("\n");
+    const track = document.getElementById("comentarios");
 
-          if (!contenedor) return; // seguridad extra
+    if (!track) return;
 
-          rows.slice(1).forEach(row => {
-            if (!row.trim()) return;
+    let total = 0;
 
-            const cols = row.split(",");
-            const nombre = cols[0];
-            const apellido = cols[1];
-            const mensaje = cols[2];
+    rows.slice(1).forEach(row => {
+      if (!row.trim()) return;
 
-            const div = document.createElement("div");
-            div.className = "comentario";
-            div.innerHTML = `
-              <strong>${nombre} ${apellido}</strong>
-              <p>${mensaje}</p>
-            `;
+      const cols = row.split(",");
+      const nombre = cols[3];   // columna 4
+      const mensaje = cols[5];  // columna 6
 
-            contenedor.appendChild(div);
-          });
-        })
-        .catch(err => console.error("Error cargando mensajes:", err));
-    </script>
+      if (!nombre || !mensaje) return;
+
+      const div = document.createElement("div");
+      div.className = "comentario";
+      div.innerHTML = `
+        <strong>${nombre}</strong>
+        <p>${mensaje}</p>
+      `;
+
+      track.appendChild(div);
+      total++;
+    });
+
+    // --- carrusel automático ---
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % total;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }, 4000);
+  });
+</script>
+
         
     </body>     
 </html>
+
