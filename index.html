@@ -1395,164 +1395,191 @@
  </a> 
             </div>             <span class="footer-hashtag">#LESLY&ISIDRO2026</span> 
         </footer>         
-        <script>
-    (function () {
-        // --- SCRIPT ANIMACIONES ---
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
+<script>
+(function () {
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("active");
-                }
-            });
-        }, observerOptions);
+  // --- SCRIPT ANIMACIONES ---
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // --- SCRIPT CONTADOR ---
-        const targetDate = new Date(2026, 2, 7, 17, 0, 0).getTime();
-        function updateTimer() {
-            const now = new Date().getTime();
-            const t = targetDate - now;
-            const d = document.getElementById("d_val");
-            const h = document.getElementById("h_val");
-            const m = document.getElementById("m_val");
-            const s = document.getElementById("s_val");
-            if (t <= 0) {
-                const timerElem = document.getElementById("wedding-timer");
-                if(timerElem) timerElem.innerHTML = "<span style='color:white; font-size:30px;'>¡Llegó el día!</span>";
-                return;
-            }
-            if(d) d.textContent = Math.floor(t / (1000 * 60 * 60 * 24));
-            if(h) h.textContent = ("0" + Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
-            if(m) m.textContent = ("0" + Math.floor((t % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
-            if(s) s.textContent = ("0" + Math.floor((t % (1000 * 60)) / 1000)).slice(-2);
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
-
-        // --- SCRIPT CARRUSEL ---
-        const slide = document.getElementById('slide');
-        const images = document.querySelectorAll('#slide img');
-        const dotsContainer = document.getElementById('dots-container');
-        if(slide && images.length > 0) {
-            let counter = 0;
-            const totalImages = images.length;
-            let timerCarousel;
-            function initDots() {
-                for (let i = 0; i < totalImages; i++) {
-                    const dot = document.createElement('span');
-                    dot.classList.add('dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(i));
-                    dotsContainer.appendChild(dot);
-                }
-            }
-            function updateDisplay() {
-                slide.style.transform = `translateX(${-counter * 100}%)`;
-                const dots = document.querySelectorAll('.dot');
-                dots.forEach((dot, index) => dot.classList.toggle('active', index === counter));
-            }
-            window.moveSlide = function(step) { counter = (counter + step + totalImages) % totalImages; updateDisplay(); resetTimer(); }
-            function goToSlide(index) { counter = index; updateDisplay(); resetTimer(); }
-            function startTimer() { timerCarousel = setInterval(() => { counter = (counter + 1) % totalImages; updateDisplay(); }, 4000); }
-            function resetTimer() { clearInterval(timerCarousel); startTimer(); }
-            initDots();
-            startTimer();
-        }
-
-        window.ampliarFoto = function(img) {
-            img.classList.toggle('fullscreen');
-            document.body.style.overflow = img.classList.contains('fullscreen') ? 'hidden' : 'auto';
-        }
-    })();
- <script>
- <script>
-function parseCSV(text) {
-  const rows = [];
-  let row = [];
-  let current = '';
-  let insideQuotes = false;
-
-  for (let i = 0; i < text.length; i++) {
-    const char = text[i];
-    const next = text[i + 1];
-
-    if (char === '"' && insideQuotes && next === '"') {
-      current += '"';
-      i++;
-    } else if (char === '"') {
-      insideQuotes = !insideQuotes;
-    } else if (char === ',' && !insideQuotes) {
-      row.push(current);
-      current = '';
-    } else if ((char === '\n' || char === '\r') && !insideQuotes) {
-      if (current || row.length) {
-        row.push(current);
-        rows.push(row);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
       }
-      row = [];
-      current = '';
-    } else {
-      current += char;
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // --- SCRIPT CONTADOR ---
+  const targetDate = new Date(2026, 2, 7, 17, 0, 0).getTime();
+
+  function updateTimer() {
+    const now = Date.now();
+    const t = targetDate - now;
+
+    const d = document.getElementById("d_val");
+    const h = document.getElementById("h_val");
+    const m = document.getElementById("m_val");
+    const s = document.getElementById("s_val");
+
+    if (t <= 0) {
+      const timerElem = document.getElementById("wedding-timer");
+      if (timerElem) {
+        timerElem.innerHTML = "<span style='color:white;font-size:30px;'>¡Llegó el día!</span>";
+      }
+      return;
     }
+
+    if (d) d.textContent = Math.floor(t / (1000 * 60 * 60 * 24));
+    if (h) h.textContent = ("0" + Math.floor((t / (1000 * 60 * 60)) % 24)).slice(-2);
+    if (m) m.textContent = ("0" + Math.floor((t / (1000 * 60)) % 60)).slice(-2);
+    if (s) s.textContent = ("0" + Math.floor((t / 1000) % 60)).slice(-2);
   }
 
-  if (current || row.length) {
-    row.push(current);
-    rows.push(row);
+  setInterval(updateTimer, 1000);
+  updateTimer();
+
+  // --- SCRIPT CARRUSEL IMÁGENES ---
+  const slide = document.getElementById('slide');
+  const images = document.querySelectorAll('#slide img');
+  const dotsContainer = document.getElementById('dots-container');
+
+  if (slide && images.length && dotsContainer) {
+    let counter = 0;
+    const totalImages = images.length;
+    let timerCarousel;
+
+    function initDots() {
+      for (let i = 0; i < totalImages; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDisplay() {
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+      document.querySelectorAll('.dot')
+        .forEach((dot, i) => dot.classList.toggle('active', i === counter));
+    }
+
+    function goToSlide(i) {
+      counter = i;
+      updateDisplay();
+      resetTimer();
+    }
+
+    function startTimer() {
+      timerCarousel = setInterval(() => {
+        counter = (counter + 1) % totalImages;
+        updateDisplay();
+      }, 4000);
+    }
+
+    function resetTimer() {
+      clearInterval(timerCarousel);
+      startTimer();
+    }
+
+    initDots();
+    startTimer();
   }
 
-  return rows;
-}
+  window.ampliarFoto = function(img) {
+    img.classList.toggle('fullscreen');
+    document.body.style.overflow =
+      img.classList.contains('fullscreen') ? 'hidden' : 'auto';
+  };
+
+})();
 </script>
 
 <script>
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWTKNFVUAE1oXDhO0m3mcbOfKBTmaP4ppaoBVrG4Jnt3WRp2OM20vns7e/pub?gid=1151585333&single=true&output=csv")
-  .then(res => res.text())
-  .then(csvText => {
-    const data = parseCSV(csvText);
-    const track = document.getElementById("comentarios");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (!track) return;
+  // --- PARSER CSV A PRUEBA DE COMAS ---
+  function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let current = '';
+    let insideQuotes = false;
 
-    let total = 0;
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      const next = text[i + 1];
 
-    // saltamos encabezado
-    data.slice(1).forEach(row => {
-      const nombre = row[3];   // columna 4
-      const mensaje = row[5];  // columna 6
+      if (char === '"' && insideQuotes && next === '"') {
+        current += '"';
+        i++;
+      } else if (char === '"') {
+        insideQuotes = !insideQuotes;
+      } else if (char === ',' && !insideQuotes) {
+        row.push(current);
+        current = '';
+      } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+        if (current || row.length) {
+          row.push(current);
+          rows.push(row);
+        }
+        row = [];
+        current = '';
+      } else {
+        current += char;
+      }
+    }
 
-      if (!nombre || !mensaje) return;
+    if (current || row.length) {
+      row.push(current);
+      rows.push(row);
+    }
 
-      const div = document.createElement("div");
-      div.className = "comentario";
-      div.innerHTML = `
-        <strong>${nombre}</strong>
-        <p>${mensaje}</p>
-      `;
+    return rows;
+  }
 
-      track.appendChild(div);
-      total++;
-    });
+  // --- MENSAJES DESDE GOOGLE SHEETS ---
+  fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWTKNFVUAE1oXDhO0m3mcbOfKBTmaP4ppaoBVrG4Jnt3WRp2OM20vns7e/pub?gid=1151585333&single=true&output=csv")
+    .then(res => res.text())
+    .then(csv => {
+      const data = parseCSV(csv);
+      const track = document.getElementById("comentarios");
+      if (!track) return;
 
-    if (total <= 1) return;
+      let total = 0;
 
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % total;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }, 4000);
-  })
-  .catch(err => console.error("Error cargando mensajes:", err));
+      data.slice(1).forEach(row => {
+        const nombre = row[3];   // columna 4
+        const mensaje = row[5];  // columna 6
+
+        if (!nombre || !mensaje) return;
+
+        const div = document.createElement("div");
+        div.className = "comentario";
+        div.innerHTML = `<strong>${nombre}</strong><p>${mensaje}</p>`;
+        track.appendChild(div);
+        total++;
+      });
+
+      if (total <= 1) return;
+
+      let index = 0;
+      setInterval(() => {
+        index = (index + 1) % total;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }, 4000);
+    })
+    .catch(err => console.error("Error mensajes:", err));
+
+});
 </script>
-        
-    </body>     
+
+</body>
 </html>
+
 
 
 
