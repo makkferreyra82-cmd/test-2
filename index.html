@@ -883,6 +883,56 @@
         color: #333;
     }
 
+/* Sección comentarios */
+.mensajes {
+  padding: 4rem 1rem;
+  background: #fdfaf6; /* mismo tono que tu web */
+  text-align: center;
+}
+
+/* Título */
+.mensajes h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor de comentarios */
+#comentarios {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Cada comentario */
+.comentario {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  text-align: left;
+}
+
+/* Nombre */
+.comentario strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+/* Mensaje */
+.comentario p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+
+
+
+           
     /* --- RSVP & FOOTER --- */
     .seccion-rsvp {
         background-color: #f4f0eb;
@@ -1243,8 +1293,10 @@
             <div class="regalos-container reveal reveal-up"> 
                 <h2 class="regalos-titulo">Regalos</h2> 
                 <p class="regalos-texto"> 
-                El mejor regalo es la alegría y el honor de compartir con ustedes este día tan especial. <br><br> 
-                Si es su deseo obsequiarnos algo adicional les recomendamos la siguiente opción: </p> 
+                El mejor regalo es la alegría y el honor de compartir con ustedes este día tan especial.
+ <br><br> 
+                Si es su deseo obsequiarnos algo adicional les recomendamos la siguiente opción:
+ </p> 
                 <h3 class="regalos-subtitulo" style="margin-top: -12px;">Lluvia de sobres</h3> 
                 <img src="gift.webp" alt="Lluvia de sobres" class="imagen-gift"> 
             </div>             
@@ -1268,7 +1320,8 @@
             <header class="header-cronograma reveal reveal-up"> 
                 <h1>Cronograma</h1> 
                 <p class="subtitulo-cronograma"> 
-                Hemos preparado un día lleno de momentos especiales. Aquí tienes el programa completo. </p> 
+                Hemos preparado un día lleno de momentos especiales. Aquí tienes el programa completo.
+ </p> 
             </header>             
             <div class="timeline-container"> 
                 <div class="timeline-item item-izq reveal reveal-left"> 
@@ -1332,15 +1385,24 @@
                     </article>                     
                 </div>                 
             </div>             
-        </section>         
+        </section>  
+
+<section class="mensajes">
+  <h2>Mensajes para los novios</h2>
+  <div id="comentarios"></div>
+</section>
+
+        
         <section class="seccion-rsvp"> 
             <div class="rsvp-container reveal reveal-up"> 
                 <h2 class="rsvp-titulo">Confirmación</h2> 
                 <div class="rsvp-subtitulo">RSVP</div>                 
                 <p class="rsvp-texto"> 
-                Por favor, confirma tu asistencia antes del 15 de febrero de 2026.  </p> 
+                Por favor, confirma tu asistencia antes del 15 de febrero de 2026. 
+ </p> 
                 <div> <a href="https://form.jotform.com/260032396916054" class="btn-celebracion" target="_blank"> 
-                    CLICK AQUÍ PARA CONFIRMAR </a> 
+                    CLICK AQUÍ PARA CONFIRMAR
+ </a> 
                 </div>                 
             </div>             
         </section>         
@@ -1349,8 +1411,11 @@
             <div class="footer-date reveal reveal-up">07 de Marzo, 2026</div>             
             <div class="footer-divider"></div>             
             <p class="footer-thanks reveal reveal-up"> 
-            Con todo nuestro amor, gracias por ser parte de nuestra historia.  </p> 
-            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/5218713607260" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly </a> <a href="https://wa.me/5218715983056" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro </a> 
+            Con todo nuestro amor, gracias por ser parte de nuestra historia. 
+ </p> 
+            <div class="ws-container reveal reveal-pop"> <a href="https://wa.me/5218713607260" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Lesly
+ </a> <a href="https://wa.me/5218715983056" class="ws-btn" target="_blank">  <i class="fab fa-whatsapp"></i> WhatsApp Isidro
+ </a> 
             </div>             <span class="footer-hashtag">#LESLY&ISIDRO2026</span> 
         </footer>         
         <script>
@@ -1428,6 +1493,38 @@
             document.body.style.overflow = img.classList.contains('fullscreen') ? 'hidden' : 'auto';
         }
     })();
-    </script>         
+
+    </script>   
+
+ <script>
+      fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBKCsuBN3FndBh_klvnVWWTKNFVUAE1oXDhO0m3mcbOfKBTmaP4ppaoBVrG4Jnt3WRp2OM20vns7e/pub?gid=1151585333&single=true&output=csv")
+        .then(res => res.text())
+        .then(csv => {
+          const rows = csv.split("\n");
+          const contenedor = document.getElementById("comentarios");
+
+          if (!contenedor) return; // seguridad extra
+
+          rows.slice(1).forEach(row => {
+            if (!row.trim()) return;
+
+            const cols = row.split(",");
+            const nombre = cols[0];
+            const apellido = cols[1];
+            const mensaje = cols[2];
+
+            const div = document.createElement("div");
+            div.className = "comentario";
+            div.innerHTML = `
+              <strong>${nombre} ${apellido}</strong>
+              <p>${mensaje}</p>
+            `;
+
+            contenedor.appendChild(div);
+          });
+        })
+        .catch(err => console.error("Error cargando mensajes:", err));
+    </script>
+        
     </body>     
 </html>
